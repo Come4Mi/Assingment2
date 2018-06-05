@@ -5,5 +5,6 @@ public class Ass2 {
 	System.out.printf("Suk Mah dik");
 	//test git
 	//danson test
+	//stoned or not
 	}
 }
