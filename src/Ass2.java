@@ -9,8 +9,6 @@ public class Ass2 {
 	//stoned or not
 	//u stoned?
 	//test merge
-=======
-	//testmerge
->>>>>>> testBranch
+
 	}
 }
