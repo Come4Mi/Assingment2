@@ -7,6 +7,5 @@ public class Ass2 {
 	//danson test
 	//stoned or not
 	//u stoned?
-	//test merge
 	}
 }
