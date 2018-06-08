@@ -11,9 +11,12 @@ public class Ass2 {
 	//danson test
 	//stoned or not
 	//u stoned?
+<<<<<<< HEAD
 	//test merge
 	
 	//hfghbfgfgb
 >>>>>>> origin/testBranch
+=======
+>>>>>>> 7e558b86495ae1ef722f3698e6f51d2d98c53159
 	}
 }
