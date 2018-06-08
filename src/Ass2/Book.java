@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package Ass2;
+=======
+package Ass2; 
+>>>>>>> master
 
 public class Book {
 	private String title;

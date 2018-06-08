@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 package Ass2;
+=======
+package Ass2; 
 
 import java.util.ArrayList;
 import java.util.Iterator;
