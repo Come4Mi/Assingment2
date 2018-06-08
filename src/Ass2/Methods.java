@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package Ass2;
+=======
+package Ass2; 
+>>>>>>> master
 
 import java.util.ArrayList;
 import java.util.Iterator;
