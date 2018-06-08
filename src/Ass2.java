@@ -4,6 +4,7 @@ public class Ass2 {
 	public static void main(String [] args) {
 	System.out.printf("Suk Mah dik");
 	//test git
-	//danson test
+	//Ass2 package
+	//josh and vikysjkshdjsjkdask
 	}
 }
