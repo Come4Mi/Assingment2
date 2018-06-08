@@ -1,4 +1,4 @@
-package Ass2;
+package Ass2; 
 
 public class Book {
 	private String title;
