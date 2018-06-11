@@ -68,14 +68,113 @@ public class Methods {
 	public void Print(ArrayList<Book> books){
 		Iterator itr1=books.iterator();
 		
-		System.out.println("______________________________________________________________________________________________________________");
-		System.out.println("Title  " + "\t\t\t\tAuthor  "+ "\tPublish  "+ "\tStatus  " + "\tType" + "\tPrice");
-		System.out.println("______________________________________________________________________________________________________________");
+		System.out.println("__________________________________________________________________________________________________________________________");
+		System.out.println("Title  " + "\t\t\t\t\t\t\tAuthor  "+ "\t\tPublish  "+ " Status  " + "Type" + "\tPrice");
+		System.out.println("__________________________________________________________________________________________________________________________");
 		 while(itr1.hasNext()){  
 			   Book str=(Book)itr1.next();  
 			   
 			   System.out.println(str.getTitle() + "\t\t\t"+ str.getAuthor() + "\t" +str.getPublish() + "\t" + str.getStatus() + "\t" + str.getType() + "\tRM" + str.getPrice());  
+			   System.out.println("__________________________________________________________________________________________________________________________");
+		}  
+	}
+//...............................................................................................................................
+	//return Method
+	//return Book's Status
+	public String rentDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist) {
+		 for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().contains(titleSearch)){
+		        	if(arraylist.get(i).getGenre().contains(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	System.out.println(avai);
+		        	if(avai.equalsIgnoreCase("in")){
+		        		arraylist.get(i).setStatus("OUT");
+		        		return "DVD is Rented out";
+		        	}else{
+		        		return "DVD is not available";
+		        	}
+		        	}else{
+		        		return "Genre not Found\n";
+		        	}
+		        }
+		        }
+		 return "DVD not Found\n";
+	}
+	
+	//return Method
+	//return DVD's Status
+	public String returnDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist) {
+		 for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	if(avai.equalsIgnoreCase("out")){
+		        		arraylist.get(i).setStatus("IN");
+		        		return "DVD is returned\n";
+		        	}else{
+		        		return "DVD Status is IN currently\n";
+		        	}
+		        	}else{
+		        		return "Genre not Found\n";
+		        	}
+		        }
+		        }
+		 return "DVD not Found\n";
+	}
+	
+	//Purchase Method
+	//return Book's Status
+	public String purchaseDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist) {
+		 for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
+		        	String msg = arraylist.get(i).getStatus() ;
+		        	return msg;
+		        	}else{
+		        		return "Genre not Found\n";
+		        	}
+		        }
+		        }
+		 return "No DVD Avaliable\n";
+	}
+	
+	//print
+	public void PrintDVD(ArrayList<DVDs> dvds){
+		Iterator dvd=dvds.iterator();
+		
+		System.out.println("______________________________________________________________________________________________________________");
+		System.out.println("Title  " + "\t\t\t\tLenth  "+ "\tDirector  "+ "\tYear Made  " + "\tStatus" + "\tGenre" + "\tPrice");
+		System.out.println("______________________________________________________________________________________________________________");
+		 while(dvd.hasNext()){  
+			   DVDs str=(DVDs)dvd.next();  
+			   
+			   System.out.println(str.getTitle() + "\t\t\t"+ str.getLength() + "\t" +str.getDirector() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" + str.getGenre() + "\tRM" + str.getPrice());  
 			   System.out.println("______________________________________________________________________________________________________________");
 		}  
 	}
+	
+	//print Customer
+	public void PrintCustomer(ArrayList<Customer> customer){
+		Iterator cus =customer.iterator();
+		double sum = 0;
+		
+		System.out.println("______________________________________________________________________________________________________________");
+		System.out.println("Name  " + "\t\t\tAge  "+ "\tPhone Number  "+ "\tSpent  " + "\tItem");
+		System.out.println("______________________________________________________________________________________________________________");
+		 while(cus.hasNext()){
+			   Customer str=(Customer)cus.next();  
+			   
+			   System.out.println(str.getName() + "\t\t\t"+ str.getAge() + "\t" +str.getPhoneNum() + "\t\tRM" + str.getSpent() + "\t" + str.getBuy() + "\t"); 
+		 }
+		 
+			//total earn
+			System.out.println("______________________________________________________________________________________________________________");
+			System.out.println("\t\t\t\t\t\t\t\t\t\t\tTotal Amount");
+			System.out.println("______________________________________________________________________________________________________________"); 
+			for(int i = 0; i < customer.size(); i++){
+				sum += customer.get(i).getSpent();
+			}
+			System.out.println("\t\t\t\t\t\t\t\t\t\t\tRM"+sum);
+	}
+//...............................................................................................................................
 }

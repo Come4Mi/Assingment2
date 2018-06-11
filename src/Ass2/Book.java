@@ -23,6 +23,14 @@ public class Book {
 		this.publish = publish;
 		this.type = type;
 	}
+	public Book(String title, String author, String status, int publish, String type, double price){
+		this.title = title;
+		this.author = author;
+		this.status = status;
+		this.publish = publish;
+		this.type = type;
+		this.price = price;
+	}
 	
 	//set values
 	public void setTitle(String title){
