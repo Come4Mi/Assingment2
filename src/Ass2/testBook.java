@@ -57,7 +57,20 @@ public class testBook{
 		hardware.add(hardware5);
 		hardware.add(hardware6);
 				
-		
+		//Software arrayList
+		Software software1 = new Software("Premier Pro", "Media Editor", "Adobe\t",2003, "IN");
+		Software software2 = new Software("Final Cut Pro X 10.4.2", "Media Editor", "Apple\t",2018, "IN");
+		Software software3 = new Software("CC 2018 (15.1.1.12)", "Media Editor", "Adobe\t",2018, "IN");
+		Software software4 = new Software("Edge", "Web Browser", "Microsoft\t",2018, "IN");
+		Software software5 = new Software("Kaspersky Lab", "Cybersecurity", "Kaspersky\t",1997, "IN");
+		Software software6 = new Software("Word 2016", "Writing", "Microsoft\t",2016, "IN");
+		ArrayList<Software> software = new ArrayList<Software>();
+		software.add(software1);
+		software.add(software2);
+		software.add(software3);
+		software.add(software4);
+		software.add(software5);
+		software.add(software6);
 		
 		
 		
@@ -323,9 +336,122 @@ public class testBook{
     			
     		//Music CD
     		case "c":;break;
+    		
+    		
+ //......................................................................................................................................
     		//Software
     		case "d":;break;
     		
+    		//loop set Software price
+			for(int i = 0; i < software.size(); i++){
+				if(software.get(i).getType().equalsIgnoreCase("Media Editor")){
+				software.get(i).setPrice(380.00);
+				}else if(software.get(i).getType().equalsIgnoreCase("Cybersecurity")){
+					software.get(i).setPrice(285.00);
+					}else if(software.get(i).getType().equalsIgnoreCase("Writing")){
+						software.get(i).setPrice(800.00);
+					}else{
+						software.get(i).setPrice(5.00);
+				}
+			}
+			
+        Iterator Software=software.iterator();
+			
+			System.out.println("________________________________________________________________");
+			System.out.println("Title  " + "\t\t\t\tType  ");
+			System.out.println("________________________________________________________________");
+			
+			//loop to print out arrayList
+			 while(Software.hasNext()){
+				   Software st=(Software)software.next();  
+				   
+				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
+				   System.out.println("________________________________________________________________");
+			 } 
+			
+	            System.out.println("Options \n");
+            System.out.print("a.) Renting a Software \n");
+            System.out.print("b.) Returning a Software \n");
+            System.out.print("c.) Purchase a Software\n");
+            System.out.print("d.) Print out information for all the Software\n");
+            System.out.print("e.) Exit program\n");
+            
+            choice = scan.next();
+			//rent
+			switch(choice){
+				case "a":
+					System.out.println("Search Software for rent");
+						search = sear.nextLine();
+					System.out.println("Search Type for rent");
+				        genre = sear.nextLine();
+						String ret = M.rentSoftware(search, genre, software);
+					System.out.println(ret);
+				break;
+					//Return
+				case"b":
+					//case 2: Returning a Software
+					System.out.println("Search Software for return");
+						search = sear.nextLine();
+					System.out.println("Search Type for returning");
+						genre = sear.nextLine();
+						String retu = M.returnSoftware(search, genre, software);
+					System.out.print(retu);
+				break;
+			
+				//Purchase Software
+				case "c":
+					System.out.println("Search Software for purchase");
+						search= sear.nextLine();
+					System.out.println("Search Type for purchase");
+						genre = sear.nextLine();
+						String purchaseSoftware = M.purchaseSoftware(search, genre, software);
+					System.out.println("Status : " + purchaseSoftware);
+			
+					if(purchaseSoftware.equalsIgnoreCase("out") || purchaseSoftware.equalsIgnoreCase("purchased")){
+						System.out.println("Not Available");
+				
+					}else{
+						//purchase press Y
+						for(int i = 0; i < software.size(); i++){
+							if(software.get(i).getTitle().equalsIgnoreCase(search)){
+								if(software.get(i).getType().equalsIgnoreCase(genre)){
+									System.out.println("Software Available");
+									System.out.println("Purchase this Software?");
+						
+									purchase = scan.next();
+						
+									if(purchase.equalsIgnoreCase("y")){
+										//customer
+										System.out.println("Customer Name");
+										name = scan.next();
+										System.out.println("Customer Age");
+										age = scan.nextInt();
+										System.out.println("Customer Phone Number");
+										phoneNum = scan.nextInt();
+										
+										Customer cus = new Customer(name, age, phoneNum, software.get(i).getPrice(), software.get(i).getTitle());
+										customer.add(cus);
+										
+										software.get(i).setStatus("Purchased");
+										System.out.println("Purchased by " + name);
+									}else{}
+					
+								}
+							}
+						}
+					}
+					break;
+					//display
+				case "d":
+					M.PrintSoftware(software);
+					break;
+					//Exit program
+				case "e":
+			System.exit(0);
+			break;
+			default:System.out.println("Please choose one");break;
+		};break;
+			
  
   //................................................................................................................................. 		
  //.................................................................................................................................

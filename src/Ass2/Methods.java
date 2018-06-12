@@ -234,6 +234,84 @@ public class Methods {
 	
 
 	//-----------------------------------------------------------------------------------------------------
+
+		//rent Software Status
+				public String rentSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist) {
+					 for(int i = 0; i < arraylist.size(); i++){
+					        if(arraylist.get(i).getTitle().contains(titleSearch)){
+					        	if(arraylist.get(i).getType().contains(typeSearch)) {
+					        	String avai = arraylist.get(i).getStatus();
+					        	System.out.println(avai);
+					        	if(avai.equalsIgnoreCase("in")){
+					        		arraylist.get(i).setStatus("OUT");
+					        		return "Software is Rented out";
+					        	}else{
+					        		return "Software is not available";
+					        	}
+					        	}else{
+					        		return "Item not Found\n";
+					        	}
+					        }
+					        }
+					 return "Software not Found\n";
+				}
+				
+				//return Method
+				//return Software Status
+				public String returnSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist) {
+					 for(int i = 0; i < arraylist.size(); i++){
+					        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+					        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
+					        	String avai = arraylist.get(i).getStatus();
+					        	if(avai.equalsIgnoreCase("out")){
+					        		arraylist.get(i).setStatus("IN");
+					        		return "Software is returned\n";
+					        	}else{
+					        		return "Software Status is IN currently\n";
+					        	}
+					        	}else{
+					        		return "Software not Found\n";
+					        	}
+					        }
+					        }
+					 return "Software not Found\n";
+				}
+				
+				//Purchase Method
+				//purchase Software Status
+				public String purchaseSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist) {
+					 for(int i = 0; i < arraylist.size(); i++){
+					        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+					        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
+					        	String msg = arraylist.get(i).getStatus() ;
+					        	return msg;
+					        	}else{
+					        		return "Software not Found\n";
+					        	}
+					        }
+					        }
+					 return "No Software Avaliable\n";
+				}
+				
+				//print
+				public void PrintSoftware(ArrayList<Software> software){
+					Iterator Software=software.iterator();
+					
+					System.out.println("______________________________________________________________________________________________________________");
+					System.out.println("Title  " + "\t\t\t\tType "+ "\tCompany  "+ "\tYear Made  " + "\tStatus" + "\tPrice");
+					System.out.println("______________________________________________________________________________________________________________");
+					 while(Software.hasNext()){  
+						   Software str=(Software)Software.next();  
+						   
+						   System.out.println(str.getTitle() + "\t\t\t"+ str.getType() + "\t" +str.getCompany() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" +  "\tRM" + str.getPrice());  
+						   System.out.println("______________________________________________________________________________________________________________");
+					}  
+				}
+			
+		
+		
+		
+	//------------------------------------------------------------------------------------------------------	
 	//print Customer
 	public void PrintCustomer(ArrayList<Customer> customer){
 		Iterator cus =customer.iterator();
