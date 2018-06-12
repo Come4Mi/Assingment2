@@ -152,7 +152,88 @@ public class Methods {
 			   System.out.println("______________________________________________________________________________________________________________");
 		}  
 	}
+	//----------------------------------------------------------------------------------------------------
+		
 	
+	//rent Hardware Status
+		public String rentHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist) {
+			 for(int i = 0; i < arraylist.size(); i++){
+			        if(arraylist.get(i).getTitle().contains(titleSearch)){
+			        	if(arraylist.get(i).getType().contains(typeSearch)) {
+			        	String avai = arraylist.get(i).getStatus();
+			        	System.out.println(avai);
+			        	if(avai.equalsIgnoreCase("in")){
+			        		arraylist.get(i).setStatus("OUT");
+			        		return "Hardware is Rented out";
+			        	}else{
+			        		return "Hardware is not available";
+			        	}
+			        	}else{
+			        		return "Item not Found\n";
+			        	}
+			        }
+			        }
+			 return "Hardware not Found\n";
+		}
+		
+		//return Method
+		//return Hardware Status
+		public String returnHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist) {
+			 for(int i = 0; i < arraylist.size(); i++){
+			        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+			        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
+			        	String avai = arraylist.get(i).getStatus();
+			        	if(avai.equalsIgnoreCase("out")){
+			        		arraylist.get(i).setStatus("IN");
+			        		return "Hardware is returned\n";
+			        	}else{
+			        		return "Hardware Status is IN currently\n";
+			        	}
+			        	}else{
+			        		return "Hardware not Found\n";
+			        	}
+			        }
+			        }
+			 return "Hardware not Found\n";
+		}
+		
+		//Purchase Method
+		//purchase Hardware Status
+		public String purchaseHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist) {
+			 for(int i = 0; i < arraylist.size(); i++){
+			        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+			        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
+			        	String msg = arraylist.get(i).getStatus() ;
+			        	return msg;
+			        	}else{
+			        		return "Hardware not Found\n";
+			        	}
+			        }
+			        }
+			 return "No DVD Avaliable\n";
+		}
+		
+		//print
+		public void PrintHardware(ArrayList<Hardware> hardware){
+			Iterator Hardware=hardware.iterator();
+			
+			System.out.println("______________________________________________________________________________________________________________");
+			System.out.println("Title  " + "\t\t\t\tType  "+ "\tBrand  "+ "\tYear Made  " + "\tStatus" + "\tPrice");
+			System.out.println("______________________________________________________________________________________________________________");
+			 while(Hardware.hasNext()){  
+				   Hardware str=(Hardware)Hardware.next();  
+				   
+				   System.out.println(str.getTitle() + "\t\t\t"+ str.getType() + "\t" +str.getBrand() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" +  "\tRM" + str.getPrice());  
+				   System.out.println("______________________________________________________________________________________________________________");
+			}  
+		}
+	
+	
+	
+	
+	
+
+	//-----------------------------------------------------------------------------------------------------
 	//print Customer
 	public void PrintCustomer(ArrayList<Customer> customer){
 		Iterator cus =customer.iterator();

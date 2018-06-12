@@ -42,6 +42,26 @@ public class testBook{
 		dvds.add(dvd5);
 		dvds.add(dvd6);
 		
+		//Hardware arrayList
+		Hardware hardware1 = new Hardware("GTX 980", "GPU", "Nvidia\t",2014, "IN");
+		Hardware hardware2 = new Hardware("GTX 1080", "GPU", "Nvidia\t",2018, "IN");
+		Hardware hardware3 = new Hardware("GTX 1070", "GPU", "Nvidia\t",2017, "IN");
+		Hardware hardware4 = new Hardware("RX 580", "GPU", "AMD\t",2017, "IN");
+		Hardware hardware5 = new Hardware("i7", "CPU", "Intel\t",2018, "IN");
+		Hardware hardware6 = new Hardware("CX 760", "PSU", "Cosair\t",2018, "IN");
+		ArrayList<Hardware> hardware = new ArrayList<Hardware>();
+		hardware.add(hardware1);
+		hardware.add(hardware2);
+		hardware.add(hardware3);
+		hardware.add(hardware4);
+		hardware.add(hardware5);
+		hardware.add(hardware6);
+				
+		
+		
+		
+		
+		
 		Methods M = new Methods();
 		
 		//customer
@@ -305,8 +325,132 @@ public class testBook{
     		case "c":;break;
     		//Software
     		case "d":;break;
+    		
+ 
+  //................................................................................................................................. 		
+ //.................................................................................................................................
     		//Hardware
-    		case "e":;break;
+    		case "e":
+    			//loop set Hardware price
+    			for(int i = 0; i < hardware.size(); i++){
+    				if(hardware.get(i).getType().equalsIgnoreCase("GPU")){
+    				hardware.get(i).setPrice(3800.00);
+    				}else if(hardware.get(i).getType().equalsIgnoreCase("CPU")){
+    					hardware.get(i).setPrice(1200.00);
+    					}else if(hardware.get(i).getType().equalsIgnoreCase("PSU")){
+    						hardware.get(i).setPrice(650.00);
+    					}else{
+    						hardware.get(i).setPrice(5.00);
+    				}
+    			}
+    			
+            Iterator Hardware=hardware.iterator();
+    			
+    			System.out.println("________________________________________________________________");
+    			System.out.println("Title  " + "\t\t\t\tType  ");
+    			System.out.println("________________________________________________________________");
+    			
+    			//loop to print out arrayList
+   			 while(Hardware.hasNext()){
+   				   Hardware st=(Hardware)Hardware.next();  
+   				   
+   				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
+   				   System.out.println("________________________________________________________________");
+   			 } 
+    			
+   	            System.out.println("Options \n");
+	            System.out.print("a.) Renting a Hardware \n");
+	            System.out.print("b.) Returning a Hardware \n");
+	            System.out.print("c.) Purchase a Hardware\n");
+	            System.out.print("d.) Print out information for all the Hardware\n");
+	            System.out.print("e.) Exit program\n");
+	            
+	            choice = scan.next();
+				//rent
+				switch(choice){
+					case "a":
+						System.out.println("Search Hardware for rent");
+							search = sear.nextLine();
+						System.out.println("Search Type for rent");
+					        genre = sear.nextLine();
+							String ret = M.rentHardware(search, genre, hardware);
+						System.out.println(ret);
+					break;
+						//Return
+					case"b":
+						//case 2: Returning a Hardware
+						System.out.println("Search Hardware for return");
+							search = sear.nextLine();
+						System.out.println("Search Type for returning");
+							genre = sear.nextLine();
+							String retu = M.returnHardware(search, genre, hardware);
+						System.out.print(retu);
+					break;
+				
+					//Purchase Hardware
+					case "c":
+						System.out.println("Search Hardware for purchase");
+							search= sear.nextLine();
+						System.out.println("Search Type for purchase");
+							genre = sear.nextLine();
+							String purchaseHardware = M.purchaseHardware(search, genre, hardware);
+						System.out.println("Status : " + purchaseHardware);
+				
+						if(purchaseHardware.equalsIgnoreCase("out") || purchaseHardware.equalsIgnoreCase("purchased")){
+							System.out.println("Not Available");
+					
+						}else{
+							//purchase press Y
+							for(int i = 0; i < hardware.size(); i++){
+								if(hardware.get(i).getTitle().equalsIgnoreCase(search)){
+									if(hardware.get(i).getType().equalsIgnoreCase(genre)){
+										System.out.println("Hardware Available");
+										System.out.println("Purchase this Hardware?");
+							
+										purchase = scan.next();
+							
+										if(purchase.equalsIgnoreCase("y")){
+    										//customer
+    										System.out.println("Customer Name");
+    										name = scan.next();
+    										System.out.println("Customer Age");
+    										age = scan.nextInt();
+    										System.out.println("Customer Phone Number");
+    										phoneNum = scan.nextInt();
+    										
+    										Customer cus = new Customer(name, age, phoneNum, hardware.get(i).getPrice(), hardware.get(i).getTitle());
+    										customer.add(cus);
+    										
+											hardware.get(i).setStatus("Purchased");
+											System.out.println("Purchased by " + name);
+										}else{}
+						
+									}
+								}
+							}
+						}
+						break;
+						//display
+					case "d":
+						M.PrintHardware(hardware);
+						break;
+						//Exit program
+					case "e":
+				System.exit(0);
+				break;
+				default:System.out.println("Please choose one");break;
+			};break;
+    			
+ 
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+ //.................................................................................................................................
     		//Stationary
     		case "f":;break;
     		//Exit program

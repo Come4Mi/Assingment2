@@ -21,6 +21,13 @@ public abstract class item {
 		this.genre = genre;
 		this.yearMade = yearMade;
 	}
+	
+	public item(String title, int yearMade) {
+		this.yearMade = yearMade;
+		this.title = title;
+	}
+	
+	
 	//set and get
 	public void setTitle(String title){
 		this.title = title;

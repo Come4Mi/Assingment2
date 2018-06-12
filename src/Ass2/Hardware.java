@@ -1,25 +1,30 @@
 package Ass2;
 
-+public class Hardware extends item{
+public class Hardware extends item{
 	private String status;
 	private double price;
-	private String title;
 	private String type;
 	private String brand;
-	private int yearMade;
 
 	public Hardware() {
 		status = "IN";
-		price = 0;
-	}
+		price = 0.00;
+		brand = null;
+		type = null ;
+		}
+	
 	public Hardware(String title, String type, String brand, int yearMade, String status) {
 		super(title, yearMade);
 		this.status = status;
+		this.brand = brand;
+		this.type=type;
 	}
 	public Hardware(String title, String type, String brand, int yearMade, String status, double price) {
 		super(title, yearMade);
 		this.status = status;
 		this.price = price;
+		this.brand = brand;
+		this.type=type;
 	}
 	//set and get
 	public void setStatus(String status){
@@ -37,13 +42,6 @@ package Ass2;
 		return price;
 	}
 	
-	public String getTitle(){
-		return title;
-	}
-	
-	public int getYearMade(){
-		return yearMade;
-	}
 	
 	public String getType(){
 		return type;
@@ -63,5 +61,6 @@ package Ass2;
                 + "Price : " + getPrice() + "";
                 
     }
+
 	
 }
