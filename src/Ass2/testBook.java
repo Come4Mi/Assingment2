@@ -340,7 +340,7 @@ public class testBook{
     		
  //......................................................................................................................................
     		//Software
-    		case "d":;break;
+    		case "d":
     		
     		//loop set Software price
 			for(int i = 0; i < software.size(); i++){
@@ -363,7 +363,7 @@ public class testBook{
 			
 			//loop to print out arrayList
 			 while(Software.hasNext()){
-				   Software st=(Software)software.next();  
+				   Software st=(Software)Software.next();  
 				   
 				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
 				   System.out.println("________________________________________________________________");
