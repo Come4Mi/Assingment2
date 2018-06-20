@@ -1,4 +1,4 @@
-package Ass2;
+package assignment2;
 
 public class Software extends item{
 

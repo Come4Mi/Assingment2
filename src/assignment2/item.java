@@ -1,6 +1,6 @@
-package Ass2;
-
-public abstract class item {
+package assignment2;
+import interfaces.CommonItem;
+public class item implements CommonItem{
 	private String title;
 	private double length;
 	private String director;

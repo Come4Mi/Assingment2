@@ -1,0 +1,173 @@
+package method;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import assignment2.Book;
+import assignment2.CustomerInfo;
+import assignment2.DVDs;
+import assignment2.Hardware;
+import assignment2.Software;
+
+public class rentMethods {
+	Scanner scan = new Scanner(System.in);
+	String renting;
+	
+	//customer
+	String name;
+	int age;
+	int phoneNum;
+	
+	//rent Method
+	//rent Book
+	public String rentMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo) {
+		//if (titleSearch == null) return "\n No Books Avaliable ";
+		 for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().contains(titleSearch)){
+		        	if(arraylist.get(i).getType().contains(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	System.out.println(avai);
+		        	if(avai.equalsIgnoreCase("in")){
+		        		
+						System.out.println("Book is Available, rent this Book? (Y/N)");
+						renting = scan.next();
+						if(renting.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							customerinfo.add(cus);
+							
+		        		arraylist.get(i).setStatus("OUT");
+		        		return "Book is Rented out";
+						}else{}
+		        	}else{
+		        		return "Book is not available";
+		        	}
+		        	}else{
+		        		return "Type not Found\n";
+		        	}
+		        }
+		        }
+		 return "Book not Found\n";
+	}
+	
+	//rent Method
+	//rent DVD
+	public String rentDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo) {
+		 for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().contains(titleSearch)){
+		        	if(arraylist.get(i).getGenre().contains(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	System.out.println(avai);
+		        	if(avai.equalsIgnoreCase("in")){
+		        		
+						System.out.println("DVD is Available, rent this DVD? (Y/N)");
+						renting = scan.next();
+						if(renting.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							customerinfo.add(cus);
+							
+		        		arraylist.get(i).setStatus("OUT");
+		        		return "DVD is Rented out";
+						}else{}
+		        	}else{
+		        		return "DVD is not available";
+		        	}
+		        	}else{
+		        		return "Genre not Found\n";
+		        	}
+		        }
+		        }
+		 return "DVD not Found\n";
+	}
+	
+	//rent 
+	//rent Hardware
+	public String rentHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) {
+		 for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().contains(titleSearch)){
+		        	if(arraylist.get(i).getType().contains(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	System.out.println(avai);
+		        	if(avai.equalsIgnoreCase("in")){
+		        		
+						System.out.println("Hardware is Available, rent this Hardware? (Y/N)");
+						renting = scan.next();
+						if(renting.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							customerinfo.add(cus);
+		        		
+		        		arraylist.get(i).setStatus("OUT");
+		        		return "Hardware is Rented out";
+						}else{}
+		        	}else{
+		        		return "Hardware is not available";
+		        	}
+		        	}else{
+		        		return "Item not Found\n";
+		        	}
+		        }
+		        }
+		 return "Hardware not Found\n";
+	}
+	
+	//rent
+	//rent Software
+	public String rentSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo) {
+		 for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().contains(titleSearch)){
+		        	if(arraylist.get(i).getType().contains(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	System.out.println(avai);
+		        	if(avai.equalsIgnoreCase("in")){
+		        		
+						System.out.println("Software is Available, rent this Software? (Y/N)");
+						renting = scan.next();
+						if(renting.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							customerinfo.add(cus);
+		        		
+		        		arraylist.get(i).setStatus("OUT");
+		        		return "Software is Rented out";
+						}else{}
+		        	}else{
+		        		return "Software is not available";
+		        	}
+		        	}else{
+		        		return "Item not Found\n";
+		        	}
+		        }
+		        }
+		 return "Software not Found\n";
+	}
+}

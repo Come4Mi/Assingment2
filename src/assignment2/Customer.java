@@ -1,26 +1,24 @@
-package Ass2;
+package assignment2;
 
 public class Customer {
 	private String name;
 	private int age;
 	private int phoneNum;
-	private double spent;
 	private String buy;
 	
 	public Customer(){
 		name = "";
 		age = 0;
 		phoneNum = 0;
-		spent = 0;
 		buy = "";
 	}
-	public Customer(String name, int age, int phoneNum, double spent, String buy){
+	public Customer(String name, int age, int phoneNum, String buy){
 		this.name = name;
 		this.age = age;
 		this.phoneNum = phoneNum;
-		this.spent = spent;
 		this.buy = buy;
 	}
+	
 	
 	//set values
 	public void setName(String name){
@@ -31,9 +29,6 @@ public class Customer {
 	}
 	public void setPhoneNum(int phoneNum){
 		this.phoneNum = phoneNum;
-	}
-	public void setSpent(double spent){
-		this.spent = spent;
 	}
 	public void setPurchase(String buy){
 		this.buy = buy;
@@ -47,9 +42,6 @@ public class Customer {
 	public int getPhoneNum(){
 		return phoneNum;
 	}
-	public double getSpent(){
-		return spent;
-	}
 	public String getBuy(){
 		return buy;
 	}
@@ -59,7 +51,6 @@ public class Customer {
         return "Name : " + this.name + " "
                 + "Age : " + this.age + " "
                 + "Phone Number : " + this.phoneNum + " " 
-                + "spent : " + this.spent + " "
                 + "Purchase : " + this.buy + " ";
 	}
 

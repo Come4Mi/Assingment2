@@ -1,4 +1,10 @@
-package Ass2;
+package assignment2;
+
+import method.rentMethods;
+import method.returnMethods;
+import method.purchaseMethods;
+import method.printMethods;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -10,7 +16,8 @@ public class testBook{
 		//scan title and type
 		Scanner sear = new Scanner(System.in);
 		
-		ArrayList<Customer> customer = new ArrayList<Customer>();
+		ArrayList<CustomerInfo> customerinfo = new ArrayList<CustomerInfo>();
+		ArrayList<CustomerSpent> customerspent = new ArrayList<CustomerSpent>();
 		
 		//Book arraylist
 		Book book1 = new Book("Java,How to Program", "\t\tPaul Deitel\t", "IN", 2017, "IT");
@@ -73,19 +80,15 @@ public class testBook{
 		software.add(software6);
 		
 		
-		
-		
-		Methods M = new Methods();
-		
-		//customer
-		String name;
-		int age;
-		int phoneNum;
+		AltM altmethod = new AltM();
+		rentMethods rent = new rentMethods();
+		returnMethods returns = new returnMethods();
+		purchaseMethods pur = new purchaseMethods();
+		printMethods print = new printMethods();
 		
 		String option;
 		String search;
 		String genre;
-		String purchase;
 		String choice;
 		
 		//loop menu
@@ -147,7 +150,7 @@ public class testBook{
     					search = sear.nextLine();
     					System.out.println("Search Type for rent");
     					genre = sear.nextLine();
-    					String ret = M.rentMethod(search, genre, books);
+    					String ret = rent.rentMethod(search, genre, books, customerinfo);
     					System.out.println(ret);
     					break;
     					//Return
@@ -157,7 +160,7 @@ public class testBook{
     					search = sear.nextLine();
     					System.out.println("Search Type for returning");
     					genre = sear.nextLine();
-    					String retu = M.returnMethod(search, genre, books);
+    					String retu = returns.returnMethod(search, genre, books, customerinfo);
     					System.out.print(retu);
     				break;
     					//Purchase
@@ -166,46 +169,14 @@ public class testBook{
     					search = sear.nextLine();
     					System.out.println("Search Type for purchase");
     					genre = sear.nextLine();
-    					String purchaseBook = M.purchaseMethod(search, genre, books);
-    					System.out.println("Status : " + purchaseBook);
-    				
-    					if(purchaseBook.equalsIgnoreCase("out") || purchaseBook.equalsIgnoreCase("purchased")){
-    						System.out.println("Not Available");
+    					String purchaseBook = pur.purchaseMethod(search, genre, books, customerinfo, customerspent);
     					
-    					}else{
-    						//purchase press Y
-    						for(int i = 0; i < books.size(); i++){
-    							if(books.get(i).getTitle().equalsIgnoreCase(search)){
-    								if(books.get(i).getType().equalsIgnoreCase(genre)){
-    									System.out.println("Book Available");
-    									System.out.println("Purchase this Book?");
-    							
-    									purchase = scan.next();
-    							
-    									if(purchase.equalsIgnoreCase("y")){
-    										//customer
-    										System.out.println("Customer Name");
-    										name = scan.next();
-    										System.out.println("Customer Age");
-    										age = scan.nextInt();
-    										System.out.println("Customer Phone Number");
-    										phoneNum = scan.nextInt();
-    										
-    										Customer cus = new Customer(name, age, phoneNum, books.get(i).getPrice(), books.get(i).getTitle());
-    										customer.add(cus);
-    										
-    										books.get(i).setStatus("Purchased");
-    										System.out.println("Purchased By " + name);
-    									}else{}
-    						
-    								}
-    							}
-    						}
-    					}
+    					System.out.println(purchaseBook);
+
     				break;
     				//display
     				case "d":
-    					M.Print(books);
+    					print.Print(books);
     				break;
     				//Exit program
     				case "e":
@@ -265,7 +236,7 @@ public class testBook{
 							search = sear.nextLine();
 						System.out.println("Search Genre for rent");
 							genre = sear.nextLine();
-							String ret = M.rentDVD(search, genre, dvds);
+							String ret = rent.rentDVD(search, genre, dvds, customerinfo);
 						System.out.println(ret);
 					break;
 						//Return
@@ -275,7 +246,7 @@ public class testBook{
 							search = sear.nextLine();
 						System.out.println("Search Genre for returning");
 							genre = sear.nextLine();
-							String retu = M.returnDVD(search, genre, dvds);
+							String retu = returns.returnDVD(search, genre, dvds, customerinfo);
 						System.out.print(retu);
 					break;
 				
@@ -285,46 +256,13 @@ public class testBook{
 							search= sear.nextLine();
 						System.out.println("Search Genre for purchase");
 							genre = sear.nextLine();
-							String purchaseDVD = M.purchaseDVD(search, genre, dvds);
-						System.out.println("Status : " + purchaseDVD);
-				
-						if(purchaseDVD.equalsIgnoreCase("out") || purchaseDVD.equalsIgnoreCase("purchased")){
-							System.out.println("Not Available");
-					
-						}else{
-							//purchase press Y
-							for(int i = 0; i < dvds.size(); i++){
-								if(dvds.get(i).getTitle().equalsIgnoreCase(search)){
-									if(dvds.get(i).getGenre().equalsIgnoreCase(genre)){
-										System.out.println("DVD Available");
-										System.out.println("Purchase this DVD?");
-							
-										purchase = scan.next();
-							
-										if(purchase.equalsIgnoreCase("y")){
-    										//customer
-    										System.out.println("Customer Name");
-    										name = scan.next();
-    										System.out.println("Customer Age");
-    										age = scan.nextInt();
-    										System.out.println("Customer Phone Number");
-    										phoneNum = scan.nextInt();
-    										
-    										Customer cus = new Customer(name, age, phoneNum, dvds.get(i).getPrice(), dvds.get(i).getTitle());
-    										customer.add(cus);
-    										
-											dvds.get(i).setStatus("Purchased");
-											System.out.println("Purchased by " + name);
-										}else{}
+							String purchaseDVD = pur.purchaseDVD(search, genre, dvds, customerinfo, customerspent);
+						System.out.println(purchaseDVD);
 						
-									}
-								}
-							}
-						}
 						break;
 						//display
 					case "d":
-						M.PrintDVD(dvds);
+						print.PrintDVD(dvds);
 						break;
 						//Exit program
 					case "e":
@@ -384,7 +322,7 @@ public class testBook{
 						search = sear.nextLine();
 					System.out.println("Search Type for rent");
 				        genre = sear.nextLine();
-						String ret = M.rentSoftware(search, genre, software);
+						String ret = rent.rentSoftware(search, genre, software, customerinfo);
 					System.out.println(ret);
 				break;
 					//Return
@@ -394,7 +332,7 @@ public class testBook{
 						search = sear.nextLine();
 					System.out.println("Search Type for returning");
 						genre = sear.nextLine();
-						String retu = M.returnSoftware(search, genre, software);
+						String retu = returns.returnSoftware(search, genre, software, customerinfo);
 					System.out.print(retu);
 				break;
 			
@@ -404,46 +342,13 @@ public class testBook{
 						search= sear.nextLine();
 					System.out.println("Search Type for purchase");
 						genre = sear.nextLine();
-						String purchaseSoftware = M.purchaseSoftware(search, genre, software);
-					System.out.println("Status : " + purchaseSoftware);
-			
-					if(purchaseSoftware.equalsIgnoreCase("out") || purchaseSoftware.equalsIgnoreCase("purchased")){
-						System.out.println("Not Available");
-				
-					}else{
-						//purchase press Y
-						for(int i = 0; i < software.size(); i++){
-							if(software.get(i).getTitle().equalsIgnoreCase(search)){
-								if(software.get(i).getType().equalsIgnoreCase(genre)){
-									System.out.println("Software Available");
-									System.out.println("Purchase this Software?");
-						
-									purchase = scan.next();
-						
-									if(purchase.equalsIgnoreCase("y")){
-										//customer
-										System.out.println("Customer Name");
-										name = scan.next();
-										System.out.println("Customer Age");
-										age = scan.nextInt();
-										System.out.println("Customer Phone Number");
-										phoneNum = scan.nextInt();
-										
-										Customer cus = new Customer(name, age, phoneNum, software.get(i).getPrice(), software.get(i).getTitle());
-										customer.add(cus);
-										
-										software.get(i).setStatus("Purchased");
-										System.out.println("Purchased by " + name);
-									}else{}
-					
-								}
-							}
-						}
-					}
+						String purchaseSoftware = pur.purchaseSoftware(search, genre, software, customerinfo, customerspent);
+					System.out.println(purchaseSoftware);
+
 					break;
 					//display
 				case "d":
-					M.PrintSoftware(software);
+					print.PrintSoftware(software);
 					break;
 					//Exit program
 				case "e":
@@ -499,7 +404,7 @@ public class testBook{
 							search = sear.nextLine();
 						System.out.println("Search Type for rent");
 					        genre = sear.nextLine();
-							String ret = M.rentHardware(search, genre, hardware);
+							String ret = rent.rentHardware(search, genre, hardware, customerinfo);
 						System.out.println(ret);
 					break;
 						//Return
@@ -509,7 +414,7 @@ public class testBook{
 							search = sear.nextLine();
 						System.out.println("Search Type for returning");
 							genre = sear.nextLine();
-							String retu = M.returnHardware(search, genre, hardware);
+							String retu = returns.returnHardware(search, genre, hardware, customerinfo);
 						System.out.print(retu);
 					break;
 				
@@ -519,46 +424,13 @@ public class testBook{
 							search= sear.nextLine();
 						System.out.println("Search Type for purchase");
 							genre = sear.nextLine();
-							String purchaseHardware = M.purchaseHardware(search, genre, hardware);
-						System.out.println("Status : " + purchaseHardware);
-				
-						if(purchaseHardware.equalsIgnoreCase("out") || purchaseHardware.equalsIgnoreCase("purchased")){
-							System.out.println("Not Available");
-					
-						}else{
-							//purchase press Y
-							for(int i = 0; i < hardware.size(); i++){
-								if(hardware.get(i).getTitle().equalsIgnoreCase(search)){
-									if(hardware.get(i).getType().equalsIgnoreCase(genre)){
-										System.out.println("Hardware Available");
-										System.out.println("Purchase this Hardware?");
-							
-										purchase = scan.next();
-							
-										if(purchase.equalsIgnoreCase("y")){
-    										//customer
-    										System.out.println("Customer Name");
-    										name = scan.next();
-    										System.out.println("Customer Age");
-    										age = scan.nextInt();
-    										System.out.println("Customer Phone Number");
-    										phoneNum = scan.nextInt();
-    										
-    										Customer cus = new Customer(name, age, phoneNum, hardware.get(i).getPrice(), hardware.get(i).getTitle());
-    										customer.add(cus);
-    										
-											hardware.get(i).setStatus("Purchased");
-											System.out.println("Purchased by " + name);
-										}else{}
+							String purchaseHardware = pur.purchaseHardware(search, genre, hardware, customerinfo, customerspent);
+						System.out.println(purchaseHardware);
 						
-									}
-								}
-							}
-						}
 						break;
 						//display
 					case "d":
-						M.PrintHardware(hardware);
+						print.PrintHardware(hardware);
 						break;
 						//Exit program
 					case "e":
@@ -580,7 +452,17 @@ public class testBook{
     		//Stationary
     		case "f":;break;
     		//Exit program
-    		case "g":M.PrintCustomer(customer);break;
+    		case "g":
+   	            System.out.println("Options \n");
+	            System.out.print("a.) Print Customer \n");
+	            System.out.print("b.) Print Customer Spent \n");
+	            
+	            choice = scan.next();
+    			switch(choice){
+				case "a":print.PrintCustomer(customerinfo);break;
+				case "b":print.PrintCustomerSpent(customerspent);break;
+				}
+    			break;
     		case "h":System.exit(0);break;
     		default:System.out.println("Please choose one");break;
     		}

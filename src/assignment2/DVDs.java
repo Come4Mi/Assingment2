@@ -1,6 +1,6 @@
-package Ass2;
-
-public class DVDs extends item{
+package assignment2;
+import interfaces.ICDS;
+public class DVDs extends item implements ICDS{
 	private String status;
 	private double price;
 
