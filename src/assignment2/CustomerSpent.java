@@ -2,13 +2,20 @@ package assignment2;
 
 public class CustomerSpent extends Customer {
 	private double spent;
+	private String date;
 	
 	public CustomerSpent(){
 		spent = 0;
+		date = "";
 	}
 	public CustomerSpent(String name, int age, int phoneNum, double spent, String buy){
 		super(name, age, phoneNum, buy);
 		this.spent = spent;
+	}
+	public CustomerSpent(String name, int age, int phoneNum, double spent, String buy, String date){
+		super(name, age, phoneNum, buy);
+		this.spent = spent;
+		this.date = date;
 	}
 	
 	
@@ -19,6 +26,13 @@ public class CustomerSpent extends Customer {
 
 	public double getSpent(){
 		return spent;
+	}
+	public void setDate(String date){
+		this.date= date;
+	}
+
+	public String getDate(){
+		return date;
 	}
 	
 	//toString

@@ -2,6 +2,8 @@ package method;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;  
+import java.util.Date;
 
 import assignment2.Book;
 import assignment2.CustomerInfo;
@@ -19,11 +21,16 @@ public class purchaseMethods {
 	int age;
 	int phoneNum;
 	
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+    Date date = new Date();
+    String dateToday = formatter.format(date);
+	
 	//Purchase Method
 	//Purchase Book
-	public String purchaseMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) {
+	public String purchaseMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		//if (titleSearch == null) return "\n No Books Avaliable ";
-		 for(int i = 0; i < arraylist.size(); i++){
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
 		        	String msg = arraylist.get(i).getStatus() ;
@@ -41,10 +48,10 @@ public class purchaseMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle());
+							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle(), dateToday);
 							customerspent.add(cus);
 							
-							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle());
+							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(info);
 							
 						arraylist.get(i).setStatus("Purchased");
@@ -59,13 +66,17 @@ public class purchaseMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "No Book Avaliable\n";
 	}
 	
 	//Purchase Method
 	//Purchase DVD
-	public String purchaseDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String purchaseDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
 		        	String msg = arraylist.get(i).getStatus() ;
@@ -83,10 +94,10 @@ public class purchaseMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle());
+							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle(), dateToday);
 							customerspent.add(cus);
 							
-							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle());
+							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(info);
 							
 						arraylist.get(i).setStatus("Purchased");
@@ -98,13 +109,17 @@ public class purchaseMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "No DVD Avaliable\n";
 	}
 	
 	//Purchase Method
 	//purchase Hardware
-	public String purchaseHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String purchaseHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
 		        	String msg = arraylist.get(i).getStatus() ;
@@ -122,10 +137,10 @@ public class purchaseMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle());
+							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle(), dateToday);
 							customerspent.add(cus);
 							
-							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle());
+							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(info);
 							
 						arraylist.get(i).setStatus("Purchased");
@@ -137,13 +152,17 @@ public class purchaseMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "No Hardware Avaliable\n";
 	}
 	
 	//Purchase Method
 	//purchase Software
-	public String purchaseSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String purchaseSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
 		        	String msg = arraylist.get(i).getStatus() ;
@@ -161,10 +180,10 @@ public class purchaseMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle());
+							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle(), dateToday);
 							customerspent.add(cus);
 							
-							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle());
+							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(info);
 							
 						arraylist.get(i).setStatus("Purchased");
@@ -176,6 +195,9 @@ public class purchaseMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "No Software Avaliable\n";
 	}
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class testBook{
+public class testItem{
 	public static void main(String[] args){
 		//scan option
 		Scanner scan = new Scanner(System.in);

@@ -2,6 +2,8 @@ package method;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;  
+import java.util.Date;
 
 import assignment2.Book;
 import assignment2.CustomerInfo;
@@ -18,11 +20,16 @@ public class rentMethods {
 	int age;
 	int phoneNum;
 	
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+    Date date = new Date();
+    String dateToday = formatter.format(date);
+	
 	//rent Method
 	//rent Book
-	public String rentMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo) {
+	public String rentMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		//if (titleSearch == null) return "\n No Books Avaliable ";
-		 for(int i = 0; i < arraylist.size(); i++){
+		try{
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getType().contains(typeSearch)) {
 		        	String avai = arraylist.get(i).getStatus();
@@ -40,7 +47,7 @@ public class rentMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 							
 		        		arraylist.get(i).setStatus("OUT");
@@ -54,13 +61,17 @@ public class rentMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "Book not Found\n";
 	}
 	
 	//rent Method
 	//rent DVD
-	public String rentDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String rentDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getGenre().contains(typeSearch)) {
 		        	String avai = arraylist.get(i).getStatus();
@@ -78,7 +89,7 @@ public class rentMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 							
 		        		arraylist.get(i).setStatus("OUT");
@@ -92,13 +103,17 @@ public class rentMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "DVD not Found\n";
 	}
 	
 	//rent 
 	//rent Hardware
-	public String rentHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String rentHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getType().contains(typeSearch)) {
 		        	String avai = arraylist.get(i).getStatus();
@@ -116,7 +131,7 @@ public class rentMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 		        		
 		        		arraylist.get(i).setStatus("OUT");
@@ -130,13 +145,17 @@ public class rentMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "Hardware not Found\n";
 	}
 	
 	//rent
 	//rent Software
-	public String rentSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String rentSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getType().contains(typeSearch)) {
 		        	String avai = arraylist.get(i).getStatus();
@@ -154,7 +173,7 @@ public class rentMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Rent", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 		        		
 		        		arraylist.get(i).setStatus("OUT");
@@ -168,6 +187,9 @@ public class rentMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "Software not Found\n";
 	}
 }

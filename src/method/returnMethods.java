@@ -2,6 +2,8 @@ package method;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;  
+import java.util.Date;
 
 import assignment2.Book;
 import assignment2.DVDs;
@@ -18,10 +20,15 @@ public class returnMethods {
 	int age;
 	int phoneNum;
 	
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+    Date date = new Date();
+    String dateToday = formatter.format(date);
+	
 	//return Method
 	//return Book
-	public String returnMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo) {
+	public String returnMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		//if (titleSearch == null) return "\n No Books Avaliable ";
+		try{
 		 for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
@@ -39,7 +46,7 @@ public class returnMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 		        		
 		        		arraylist.get(i).setStatus("IN");
@@ -53,13 +60,17 @@ public class returnMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "Book not Found\n";
 	}
 	
 	//return Method
 	//return DVD
-	public String returnDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String returnDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
 		        	String avai = arraylist.get(i).getStatus();
@@ -76,7 +87,7 @@ public class returnMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 		        		
 		        		arraylist.get(i).setStatus("IN");
@@ -90,13 +101,17 @@ public class returnMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "DVD not Found\n";
 	}
 	
 	//return Method
 	//return Hardware
-	public String returnHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String returnHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
 		        	String avai = arraylist.get(i).getStatus();
@@ -113,7 +128,7 @@ public class returnMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 		        		
 		        		arraylist.get(i).setStatus("IN");
@@ -127,13 +142,17 @@ public class returnMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "Hardware not Found\n";
 	}
 	
 	//return Method
 	//return Software
-	public String returnSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo) {
-		 for(int i = 0; i < arraylist.size(); i++){
+	public String returnSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
 		        	String avai = arraylist.get(i).getStatus();
@@ -150,7 +169,7 @@ public class returnMethods {
 							System.out.println("Customer Phone Number");
 							phoneNum = scan.nextInt();
 							
-							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle());
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle(), dateToday);
 							customerinfo.add(cus);
 		        		
 		        		arraylist.get(i).setStatus("IN");
@@ -164,6 +183,9 @@ public class returnMethods {
 		        	}
 		        }
 		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
 		 return "Software not Found\n";
 	}
 
