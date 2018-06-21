@@ -15,7 +15,7 @@ public class Hardware extends item{
 	
 	public Hardware(String title, String type, String brand, int yearMade, String status) {
 		super(title, yearMade);
-		this.status = status; 
+		this.status = status;
 		this.brand = brand;
 		this.type=type;
 	}

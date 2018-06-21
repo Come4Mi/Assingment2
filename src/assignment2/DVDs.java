@@ -15,7 +15,7 @@ public class DVDs extends item implements ICDS{
 	public DVDs(String title, double length, String director, String genre, int yearMade, String status, double price) {
 		super(title, length, director, genre, yearMade);
 		this.status = status;
-		this.price = price; 
+		this.price = price;
 	}
 	//set and get
 	public void setStatus(String status){

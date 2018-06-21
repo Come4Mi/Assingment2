@@ -11,7 +11,7 @@ public class Book {
 	public Book(){
 		title = "";
 		author = "";
-		status = "IN"; 
+		status = "IN";
 		publish = 0;
 		type = "";
 		price = 0;

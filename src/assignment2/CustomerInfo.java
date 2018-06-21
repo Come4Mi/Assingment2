@@ -14,7 +14,7 @@ public class CustomerInfo extends Customer {
 	}
 	public CustomerInfo(String name, int age, int phoneNum, String buy, String info, String date){
 		super(name, age, phoneNum, buy);
-		this.info = info; 
+		this.info = info;
 		this.date = date;
 	}
 	

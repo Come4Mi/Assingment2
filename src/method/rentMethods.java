@@ -22,7 +22,7 @@ public class rentMethods {
 	
 	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
     Date date = new Date();
-    String dateToday = formatter.format(date); 
+    String dateToday = formatter.format(date);
 	
 	//rent Method
 	//rent Book

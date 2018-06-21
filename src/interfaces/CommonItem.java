@@ -14,7 +14,7 @@ public interface CommonItem {
 	public void setLength(double length);
 	
 	public String getDirector();
-	public void setDirector(String director); 
+	public void setDirector(String director);
 	
 	public String getGenre();
 	public void setGenre(String genre);

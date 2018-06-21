@@ -17,7 +17,7 @@ public class Software extends item{
 		price = 0.00;
 		company = null;
 		type = null ;
-		} 
+		}
 	
 	public Software(String title, String type, String company, int yearMade, String status) {
 		super(title, yearMade);

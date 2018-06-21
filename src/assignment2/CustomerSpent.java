@@ -15,7 +15,7 @@ public class CustomerSpent extends Customer {
 	public CustomerSpent(String name, int age, int phoneNum, double spent, String buy, String date){
 		super(name, age, phoneNum, buy);
 		this.spent = spent;
-		this.date = date; 
+		this.date = date;
 	}
 	
 	
