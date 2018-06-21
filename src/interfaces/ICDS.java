@@ -15,7 +15,7 @@ public interface ICDS {
 	public String getGenre();
 	public void setGenre(String genre);
 	
-	public int getYearMade();
+	public int getYearMade(); 
 	public void setYearMade(int yearMade);
 
 }

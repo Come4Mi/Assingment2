@@ -25,7 +25,7 @@ public class printMethods {
 			   System.out.println("__________________________________________________________________________________________________________________________");
 		}  
 		}catch(ArithmeticException e){
-			e.getLocalizedMessage();
+			e.getLocalizedMessage(); 
 		}
 	}
 	

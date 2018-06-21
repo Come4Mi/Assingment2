@@ -8,7 +8,7 @@ public class Customer {
 	
 	public Customer(){
 		name = "";
-		age = 0;
+		age = 0; 
 		phoneNum = 0;
 		buy = "";
 	}

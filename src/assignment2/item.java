@@ -17,7 +17,7 @@ public class item implements CommonItem{
 	public item(String title, double length, String director, String genre, int yearMade) {
 		this.title = title;
 		this.length = length;
-		this.director = director;
+		this.director = director; 
 		this.genre = genre;
 		this.yearMade = yearMade;
 	}
