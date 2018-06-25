@@ -7,6 +7,8 @@ import java.util.Date;
 
 import assignment2.Book;
 import assignment2.DVDs;
+import assignment2.MusicCD;
+import assignment2.Stationary;
 import assignment2.CustomerInfo;
 import assignment2.Hardware;
 import assignment2.Software;
@@ -108,6 +110,47 @@ public class returnMethods {
 	}
 	
 	//return Method
+	//return MusicCD
+	public String returnMusicCD(String titleSearch, String typeSearch, ArrayList<MusicCD> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	if(avai.equalsIgnoreCase("out")){
+		        		
+						System.out.println("Return this Book? (Y/N)");
+						returning = scan.next();
+						if(returning.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle(), dateToday);
+							customerinfo.add(cus);
+		        		
+		        		arraylist.get(i).setStatus("IN");
+		        		return "MusicCD is returned\n";
+						}else{}
+		        	}else{
+		        		return "MusicCD Status is IN currently\n";
+		        	}
+		        	}else{
+		        		return "Genre not Found\n";
+		        	}
+		        }
+		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
+		 return "MusicCD not Found\n";
+	}
+	
+	//return Method
 	//return Hardware
 	public String returnHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{
@@ -117,7 +160,7 @@ public class returnMethods {
 		        	String avai = arraylist.get(i).getStatus();
 		        	if(avai.equalsIgnoreCase("out")){
 		        		
-						System.out.println("Return this Book? (Y/N)");
+						System.out.println("Return this Hardware? (Y/N)");
 						returning = scan.next();
 						if(returning.equalsIgnoreCase("y")){
 							//customer
@@ -146,6 +189,47 @@ public class returnMethods {
 			e.getLocalizedMessage();
 		}
 		 return "Hardware not Found\n";
+	}
+	
+	//return Method
+	//return Stationary
+	public String returnStationary(String titleSearch, String typeSearch, ArrayList<Stationary> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
+		try{
+		for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
+		        	String avai = arraylist.get(i).getStatus();
+		        	if(avai.equalsIgnoreCase("out")){
+		        		
+						System.out.println("Return this Stationary Item? (Y/N)");
+						returning = scan.next();
+						if(returning.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerInfo cus = new CustomerInfo(name, age, phoneNum, "Return", arraylist.get(i).getTitle(), dateToday);
+							customerinfo.add(cus);
+		        		
+		        		arraylist.get(i).setStatus("IN");
+		        		return "Stationary Item is returned\n";
+						}else{}
+		        	}else{
+		        		return "Stationary Item Status is IN currently\n";
+		        	}
+		        	}else{
+		        		return "Item not Found\n";
+		        	}
+		        }
+		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
+		 return "Item not Found\n";
 	}
 	
 	//return Method

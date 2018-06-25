@@ -3,7 +3,7 @@ package assignment2;
 import interfaces.DVD18;
 import interfaces.DVDR;
 import interfaces.DVDRAM;
-public class DVDs extends item implements DVD18, DVDR, DVDRAM{
+public class MusicCD extends item implements DVD18, DVDR, DVDRAM{
 	private String status;
 	private double price;
 	private int sides;
@@ -11,7 +11,7 @@ public class DVDs extends item implements DVD18, DVDR, DVDRAM{
 	private int diameter;
 	private double capacity;
 	
-	public DVDs() {
+	public MusicCD() {
 		status = "IN";
 		price = 0;
 	}
@@ -34,11 +34,11 @@ public class DVDs extends item implements DVD18, DVDR, DVDRAM{
 		capacity = 8.75;
 	}
 	
-	public DVDs(String title, double length, String director, String genre, int yearMade, String status) {
+	public MusicCD(String title, double length, String director, String genre, int yearMade, String status) {
 		super(title, length, director, genre, yearMade);
 		this.status = status;
 	}
-	public DVDs(String title, double length, String director, String genre, int yearMade, String status, double price) {
+	public MusicCD(String title, double length, String director, String genre, int yearMade, String status, double price) {
 		super(title, length, director, genre, yearMade);
 		this.status = status;
 		this.price = price;

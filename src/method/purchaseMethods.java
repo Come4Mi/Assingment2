@@ -9,6 +9,8 @@ import assignment2.Book;
 import assignment2.CustomerInfo;
 import assignment2.CustomerSpent;
 import assignment2.DVDs;
+import assignment2.MusicCD;
+import assignment2.Stationary;
 import assignment2.Hardware;
 import assignment2.Software;
 
@@ -116,6 +118,49 @@ public class purchaseMethods {
 	}
 	
 	//Purchase Method
+	//Purchase MusicCD
+	public String purchaseMusicCD(String titleSearch, String typeSearch, ArrayList<MusicCD> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
+		        	String msg = arraylist.get(i).getStatus() ;
+					if(msg.equalsIgnoreCase("out") || msg.equalsIgnoreCase("purchased")){
+						return "Not Available";
+					}else{
+						System.out.println("MusicCD is Available, purchase this DVD? (Y/N)");
+						purchase = scan.next();
+						if(purchase.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle(), dateToday);
+							customerspent.add(cus);
+							
+							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle(), dateToday);
+							customerinfo.add(info);
+							
+						arraylist.get(i).setStatus("Purchased");
+						return "MusicCD is Purchased";
+						}else{}
+					}
+		        	}else{
+		        		return "Genre not Found\n";
+		        	}
+		        }
+		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
+		 return "No MusicCD Avaliable\n";
+	}
+	
+	//Purchase Method
 	//purchase Hardware
 	public String purchaseHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		try{ 
@@ -156,6 +201,49 @@ public class purchaseMethods {
 			e.getLocalizedMessage();
 		}
 		 return "No Hardware Avaliable\n";
+	}
+	
+	//Purchase Method
+	//purchase Stationary
+	public String purchaseStationary(String titleSearch, String typeSearch, ArrayList<Stationary> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
+		try{ 
+		for(int i = 0; i < arraylist.size(); i++){
+		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
+		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
+		        	String msg = arraylist.get(i).getStatus() ;
+					if(msg.equalsIgnoreCase("out") || msg.equalsIgnoreCase("purchased")){
+						return "Not Available";
+					}else{
+						System.out.println("Stationary Item is Available, purchase this Stationary Item? (Y/N)");
+						purchase = scan.next();
+						if(purchase.equalsIgnoreCase("y")){
+							//customer
+							System.out.println("Customer Name");
+							name = scan.next();
+							System.out.println("Customer Age");
+							age = scan.nextInt();
+							System.out.println("Customer Phone Number");
+							phoneNum = scan.nextInt();
+							
+							CustomerSpent cus = new CustomerSpent(name, age, phoneNum, arraylist.get(i).getPrice(), arraylist.get(i).getTitle(), dateToday);
+							customerspent.add(cus);
+							
+							CustomerInfo info = new CustomerInfo(name, age, phoneNum, "Purchase", arraylist.get(i).getTitle(), dateToday);
+							customerinfo.add(info);
+							
+						arraylist.get(i).setStatus("Purchased");
+						return "Stationary Item is Purchased";
+						}else{}
+					}
+		        	}else{
+		        		return "Item not Found\n";
+		        	}
+		        }
+		        }
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
+		 return "No Item Avaliable\n";
 	}
 	
 	//Purchase Method

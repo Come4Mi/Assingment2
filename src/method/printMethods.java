@@ -7,6 +7,8 @@ import assignment2.Book;
 import assignment2.CustomerInfo;
 import assignment2.CustomerSpent;
 import assignment2.DVDs;
+import assignment2.MusicCD;
+import assignment2.Stationary;
 import assignment2.Hardware;
 import assignment2.Software;
 
@@ -49,6 +51,25 @@ public class printMethods {
 	}
 	
 	//print
+	public void PrintMusicCD(ArrayList<MusicCD> cds) throws ArithmeticException{
+		try{
+		Iterator cd=cds.iterator();
+		
+		System.out.println("______________________________________________________________________________________________________________");
+		System.out.println("Title  " + "\t\t\t\tLenth  "+ "\tDirector  "+ "\tYear Made  " + "\tStatus" + "\tGenre" + "\tPrice");
+		System.out.println("______________________________________________________________________________________________________________");
+		 while(cd.hasNext()){  
+			 MusicCD str=(MusicCD)cd.next();  
+			   
+			   System.out.println(str.getTitle() + "\t\t\t"+ str.getLength() + "\t" +str.getDirector() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" + str.getGenre() + "\tRM" + str.getPrice());  
+			   System.out.println("______________________________________________________________________________________________________________");
+		}  
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
+	}
+	
+	//print
 	public void PrintHardware(ArrayList<Hardware> hardware) throws ArithmeticException{
 		try{
 		Iterator Hardware=hardware.iterator();
@@ -58,6 +79,25 @@ public class printMethods {
 		System.out.println("______________________________________________________________________________________________________________");
 		 while(Hardware.hasNext()){  
 			   Hardware str=(Hardware)Hardware.next();  
+			   
+			   System.out.println(str.getTitle() + "\t\t\t"+ str.getType() + "\t" +str.getBrand() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" +  "\tRM" + str.getPrice());  
+			   System.out.println("______________________________________________________________________________________________________________");
+		}  
+		}catch(ArithmeticException e){
+			e.getLocalizedMessage();
+		}
+	}
+	
+	//print
+	public void PrintStationary(ArrayList<Stationary> stationary) throws ArithmeticException{
+		try{
+		Iterator Stationary=stationary.iterator();
+		
+		System.out.println("______________________________________________________________________________________________________________");
+		System.out.println("Title  " + "\t\t\t\tType  "+ "\tBrand  "+ "\tYear Made  " + "\tStatus" + "\tPrice");
+		System.out.println("______________________________________________________________________________________________________________");
+		 while(Stationary.hasNext()){  
+			 Stationary str=(Stationary)Stationary.next();  
 			   
 			   System.out.println(str.getTitle() + "\t\t\t"+ str.getType() + "\t" +str.getBrand() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" +  "\tRM" + str.getPrice());  
 			   System.out.println("______________________________________________________________________________________________________________");
