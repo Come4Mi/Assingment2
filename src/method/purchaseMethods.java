@@ -30,7 +30,7 @@ public class purchaseMethods {
 	//Purchase Method
 	//Purchase Book
 	public String purchaseMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
-		//if (titleSearch == null) return "\n No Books Avaliable ";
+		//if (titleSearch == null) return "\n No Books Available ";
 		try{ 
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
