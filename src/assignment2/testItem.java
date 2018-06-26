@@ -49,6 +49,21 @@ public class testItem{
 		dvds.add(dvd5);
 		dvds.add(dvd6);
 		
+		//MusicCD arrayList
+		MusicCD cd1 = new MusicCD("S.H.E", 3.5, "Rock Company\t", "Hip-pop", 2010, "IN");
+		MusicCD cd2 = new MusicCD("Tank", 2.5, "Rock Company", "Blues", 2014, "IN");
+		MusicCD cd3 = new MusicCD("One Ok Rock", 2.5, "\tOne Ok Rock ", "Rock", 2016, "IN");
+		MusicCD cd4 = new MusicCD("ACDC", 2, "\t\tACDC", "Rock", 2011, "IN");
+		MusicCD cd5 = new MusicCD("JJ Lim", 3, "\tRock Company ", "Classical", 2016, "IN");
+		MusicCD cd6 = new MusicCD("Jay chou", 3, "\t\t JVR Music", "Classical", 2018, "IN");
+		ArrayList<MusicCD> cds = new ArrayList<MusicCD>();
+		cds.add(cd1);
+		cds.add(cd2);
+		cds.add(cd3);
+		cds.add(cd4);
+		cds.add(cd5);
+		cds.add(cd6);
+		
 		//Hardware arrayList
 		Hardware hardware1 = new Hardware("GTX 980", "GPU", "Nvidia",2014, "IN");
 		Hardware hardware2 = new Hardware("GTX 1080", "GPU", "Nvidia",2018, "IN");
@@ -79,6 +94,22 @@ public class testItem{
 		software.add(software5);
 		software.add(software6);
 		
+		//Stationary arrayList
+		Stationary stationary1 = new Stationary("Blue Pen", "Pen", "Mossery\t",2014, "IN");
+		Stationary stationary2 = new Stationary("Marker Pen", "Pen", "Mossery\t",2018, "IN");
+		Stationary stationary3 = new Stationary("Colored pencil", "pencil", "Stickerrific\t",2017, "IN");
+		Stationary stationary4 = new Stationary("Red Pen", "Pen", "Mossery\t",2017, "IN");
+		Stationary stationary5 = new Stationary("Black Pen", "Pen", "Mossery\t",2018, "IN");
+		Stationary stationary6 = new Stationary("Eraser", "Eraser", "Stickerrific\t",2018, "IN");
+		ArrayList<Stationary> stationary = new ArrayList<Stationary>();
+		stationary.add(stationary1);
+		stationary.add(stationary2);
+		stationary.add(stationary3);
+		stationary.add(stationary4);
+		stationary.add(stationary5);
+		stationary.add(stationary6);
+		
+		//Methods
 		rentMethods rent = new rentMethods();
 		returnMethods returns = new returnMethods();
 		purchaseMethods pur = new purchaseMethods();
@@ -270,7 +301,83 @@ public class testItem{
 //....................................................................................................................................
     			
     		//Music CD
-    		case "c":;break;
+    		case "c":
+    			//loop set CD price
+    			for(int i = 0; i < cds.size(); i++){
+    				if(cds.get(i).getGenre().equalsIgnoreCase("Classical")){
+    				cds.get(i).setPrice(20.00);
+    				}else if(cds.get(i).getGenre().equalsIgnoreCase("Rock")){
+    					cds.get(i).setPrice(15.00);
+    					}else if(cds.get(i).getGenre().equalsIgnoreCase("Hip-pop")){
+    						cds.get(i).setPrice(10.00);
+    					}else{
+    						cds.get(i).setPrice(5.00);
+    				}
+    			}
+    			
+    			Iterator cd=cds.iterator();
+    			
+    			System.out.println("________________________________________________________________");
+    			System.out.println("Title  " + "\t\t\t\tGenre  ");
+    			System.out.println("________________________________________________________________");
+    			
+    			//loop to print out arrayList
+   			 while(cd.hasNext()){
+   				   MusicCD st=(MusicCD)cd.next();  
+   				   
+   				   System.out.println(st.getTitle() + "\t\t\t" + st.getGenre());  
+   				   System.out.println("________________________________________________________________");
+   			 } 
+    			
+   	            System.out.println("Options \n");
+	            System.out.print("a.) Renting a MusicCD \n");
+	            System.out.print("b.) Returning a MusicCD \n");
+	            System.out.print("c.) Purchase a MusicCD\n");
+	            System.out.print("d.) Print out information for all the MusicCDs\n");
+	            System.out.print("e.) Exit program\n");
+	            
+	            choice = scan.next();
+				//rent
+				switch(choice){
+					case "a":
+						System.out.println("Search MusicCD for rent");
+							search = sear.nextLine();
+						System.out.println("Search Genre for rent");
+							genre = sear.nextLine();
+							String ret = rent.rentMusicCD(search, genre, cds, customerinfo);
+						System.out.println(ret);
+					break;
+						//Return
+					case"b":
+						//case 2: Returning a MusicCD
+						System.out.println("Search MusicCD for return");
+							search = sear.nextLine();
+						System.out.println("Search Genre for returning");
+							genre = sear.nextLine();
+							String retu = returns.returnMusicCD(search, genre, cds, customerinfo);
+						System.out.print(retu);
+					break;
+				
+					//Purchase DVD
+					case "c":
+						System.out.println("Search MusicCD for purchase");
+							search= sear.nextLine();
+						System.out.println("Search Genre for purchase");
+							genre = sear.nextLine();
+							String purchaseMusicCD = pur.purchaseMusicCD(search, genre, cds, customerinfo, customerspent);
+						System.out.println(purchaseMusicCD);
+						
+						break;
+						//display
+					case "d":
+						print.PrintMusicCD(cds);
+						break;
+						//Exit program
+					case "e":
+				System.exit(0);
+				break;
+				default:System.out.println("Please choose one");break;
+			};break;
     		
     		
  //......................................................................................................................................
@@ -447,7 +554,83 @@ public class testItem{
     			
  //.................................................................................................................................
     		//Stationary
-    		case "f":;break;
+    		case "f":
+    			//loop set Stationary price
+    			for(int i = 0; i < stationary.size(); i++){
+    				if(stationary.get(i).getType().equalsIgnoreCase("Pen")){
+    					stationary.get(i).setPrice(2.50);
+    				}else if(stationary.get(i).getType().equalsIgnoreCase("Pencil")){
+    					stationary.get(i).setPrice(1.50);
+    					}else if(stationary.get(i).getType().equalsIgnoreCase("Eraser")){
+    						stationary.get(i).setPrice(0.50);
+    					}else{
+    						stationary.get(i).setPrice(1);
+    				}
+    			}
+    			
+            Iterator Stationary=stationary.iterator();
+    			
+    			System.out.println("________________________________________________________________");
+    			System.out.println("Title  " + "\t\t\t\tType  ");
+    			System.out.println("________________________________________________________________");
+    			
+    			//loop to print out arrayList
+   			 while(Stationary.hasNext()){
+   				Stationary st=(Stationary)Stationary.next();  
+   				   
+   				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
+   				   System.out.println("________________________________________________________________");
+   			 } 
+    			
+   	            System.out.println("Options \n");
+	            System.out.print("a.) Renting a stationary Item \n");
+	            System.out.print("b.) Returning a stationary Item \n");
+	            System.out.print("c.) Purchase a stationary Item\n");
+	            System.out.print("d.) Print out information for all the stationary Item\n");
+	            System.out.print("e.) Exit program\n");
+	            
+	            choice = scan.next();
+				//rent
+				switch(choice){
+					case "a":
+						System.out.println("Search stationary Item for rent");
+							search = sear.nextLine();
+						System.out.println("Search Type for rent");
+					        genre = sear.nextLine();
+							String ret = rent.rentStationary(search, genre, stationary, customerinfo);
+						System.out.println(ret);
+					break;
+						//Return
+					case"b":
+						//case 2: Returning a Stationary
+						System.out.println("Search Stationary Item for return");
+							search = sear.nextLine();
+						System.out.println("Search Type for returning");
+							genre = sear.nextLine();
+							String retu = returns.returnStationary(search, genre, stationary, customerinfo);
+						System.out.print(retu);
+					break;
+				
+					//Purchase Hardware
+					case "c":
+						System.out.println("Search Stationary Item for purchase");
+							search= sear.nextLine();
+						System.out.println("Search Type for purchase");
+							genre = sear.nextLine();
+							String purchaseStationary = pur.purchaseStationary(search, genre, stationary, customerinfo, customerspent);
+						System.out.println(purchaseStationary);
+						
+						break;
+						//display
+					case "d":
+						print.PrintStationary(stationary);
+						break;
+						//Exit program
+					case "e":
+				System.exit(0);
+				break;
+				default:System.out.println("Please choose one");break;
+			};break;
     		//Exit program
     		case "g":
    	            System.out.println("Options \n");
