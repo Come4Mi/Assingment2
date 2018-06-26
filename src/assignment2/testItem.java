@@ -20,12 +20,12 @@ public class testItem{
 		ArrayList<CustomerSpent> customerspent = new ArrayList<CustomerSpent>();
 		
 		//Book arraylist
-		Book book1 = new Book("Java,How to Program", "\t\tPaul Deitel\t", "IN", 2017, "IT");
-		Book book2 = new Book("Mastering Java Machine Learning", "\tKrishna Choppella", "IN", 2016, "IT"); 
-		Book book3 = new Book("Python Crash Course", "\t\tEric Matthes\t", "IN", 2015, "IT"); 
-		Book book4 = new Book("The life-changing Magic of Tidying Up", "Marie Kondo\t", "IN", 2014, "Sci-fi"); 
-		Book book5 = new Book("Managing Stress", "\t\t\tundefine\t", "IN", 2018, "Comic"); 
-		Book book6 = new Book("Principles: Life and Work", "\tRay Dalio\t", "IN", 2017, "Comic"); 
+		Book book1 = new Book("Java,How to Program", "Paul Deitel", "IN", 2017, "IT");
+		Book book2 = new Book("Mastering Java Machine Learning", "Krishna Choppella", "IN", 2016, "IT"); 
+		Book book3 = new Book("Python Crash Course", "Eric Matthes", "IN", 2015, "IT"); 
+		Book book4 = new Book("The life-changing Magic of Tidying Up", "Marie Kondo", "IN", 2014, "Sci-fi"); 
+		Book book5 = new Book("Managing Stress", "tundefine", "IN", 2018, "Comic"); 
+		Book book6 = new Book("Principles: Life and Work", "Ray Dalio", "IN", 2017, "Comic"); 
 		ArrayList<Book> books=new ArrayList<Book>();
 		books.add(book1);
 		books.add(book2);
@@ -35,12 +35,12 @@ public class testItem{
 		books.add(book6);
 		
 		//DVD arrayList
-		DVDs dvd1 = new DVDs("Star Wars", 3.5, "Lucas\t", "Action", 2018, "IN");
+		DVDs dvd1 = new DVDs("Star Wars", 3.5, "Lucas", "Action", 2018, "IN");
 		DVDs dvd2 = new DVDs("Deadth Note", 2.5, "Tarantino", "Thriller", 2014, "IN");
-		DVDs dvd3 = new DVDs("Harry potter", 2.5, "\t ", "Sci-fi", 2006, "IN");
-		DVDs dvd4 = new DVDs("Shrek", 2, "\tAgogo\t", "Animation", 2011, "IN");
-		DVDs dvd5 = new DVDs("Transformers", 3, "\t ", "Action", 2016, "IN");
-		DVDs dvd6 = new DVDs("Avenger", 3, "\t\t ", "Action", 2018, "IN");
+		DVDs dvd3 = new DVDs("Harry potter", 2.5, "Columbus", "Sci-fi", 2006, "IN");
+		DVDs dvd4 = new DVDs("Shrek", 2, "Agogo", "Animation", 2011, "IN");
+		DVDs dvd5 = new DVDs("Transformers", 3, "Michael.B", "Action", 2016, "IN");
+		DVDs dvd6 = new DVDs("Avenger", 3, "Joss.W", "Action", 2018, "IN");
 		ArrayList<DVDs> dvds = new ArrayList<DVDs>();
 		dvds.add(dvd1);
 		dvds.add(dvd2);
@@ -50,12 +50,12 @@ public class testItem{
 		dvds.add(dvd6);
 		
 		//Hardware arrayList
-		Hardware hardware1 = new Hardware("GTX 980", "GPU", "Nvidia\t",2014, "IN");
-		Hardware hardware2 = new Hardware("GTX 1080", "GPU", "Nvidia\t",2018, "IN");
-		Hardware hardware3 = new Hardware("GTX 1070", "GPU", "Nvidia\t",2017, "IN");
-		Hardware hardware4 = new Hardware("RX 580", "GPU", "AMD\t",2017, "IN");
-		Hardware hardware5 = new Hardware("i7", "CPU", "Intel\t",2018, "IN");
-		Hardware hardware6 = new Hardware("CX 760", "PSU", "Cosair\t",2018, "IN");
+		Hardware hardware1 = new Hardware("GTX 980", "GPU", "Nvidia",2014, "IN");
+		Hardware hardware2 = new Hardware("GTX 1080", "GPU", "Nvidia",2018, "IN");
+		Hardware hardware3 = new Hardware("GTX 1070", "GPU", "Nvidia",2017, "IN");
+		Hardware hardware4 = new Hardware("RX 580", "GPU", "AMD",2017, "IN");
+		Hardware hardware5 = new Hardware("i7", "CPU", "Intel",2018, "IN");
+		Hardware hardware6 = new Hardware("CX 760", "PSU", "Cosair",2018, "IN");
 		ArrayList<Hardware> hardware = new ArrayList<Hardware>();
 		hardware.add(hardware1);
 		hardware.add(hardware2);
@@ -65,12 +65,12 @@ public class testItem{
 		hardware.add(hardware6);
 				
 		//Software arrayList
-		Software software1 = new Software("Premier Pro", "Media Editor", "Adobe\t",2003, "IN");
-		Software software2 = new Software("Final Cut Pro X 10.4.2", "Media Editor", "Apple\t",2018, "IN");
-		Software software3 = new Software("CC 2018 (15.1.1.12)", "Media Editor", "Adobe\t",2018, "IN");
-		Software software4 = new Software("Edge", "Web Browser", "Microsoft\t",2018, "IN");
-		Software software5 = new Software("Kaspersky Lab", "Cybersecurity", "Kaspersky\t",1997, "IN");
-		Software software6 = new Software("Word 2016", "Writing", "Microsoft\t",2016, "IN");
+		Software software1 = new Software("Premier Pro", "Media Editor", "Adobe",2003, "IN");
+		Software software2 = new Software("Final Cut Pro X 10.4.2", "Media Editor", "Apple",2018, "IN");
+		Software software3 = new Software("CC 2018 (15.1.1.12)", "Media Editor", "Adobe",2018, "IN");
+		Software software4 = new Software("Edge", "Web Browser", "Microsoft",2018, "IN");
+		Software software5 = new Software("Kaspersky Lab", "Cybersecurity", "Kaspersky",1997, "IN");
+		Software software6 = new Software("Word 2016", "Writing", "Microsoft",2016, "IN");
 		ArrayList<Software> software = new ArrayList<Software>();
 		software.add(software1);
 		software.add(software2);
@@ -121,14 +121,13 @@ public class testItem{
     			Iterator itr=books.iterator();
     			
     			System.out.println("________________________________________________________________");
-    			System.out.println("Title  " + "\t\t\t\t\t\t\tType  ");
+    			System.out.println("Title  " + "\t\t\t\t\t\tType  ");
     			System.out.println("________________________________________________________________");
-    			
+    			String formatBooks="%-48s%s%n";
     			//loop to print out arrayList
     			 while(itr.hasNext()){
     				   Book st=(Book)itr.next();  
-    				   
-    				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
+    				   System.out.printf(formatBooks, st.getTitle(), st.getType());  
     				   System.out.println("________________________________________________________________");
     			}  
     			 
@@ -207,16 +206,16 @@ public class testItem{
     			
     			Iterator dvd=dvds.iterator();
     			
-    			System.out.println("________________________________________________________________");
-    			System.out.println("Title  " + "\t\t\t\tGenre  ");
-    			System.out.println("________________________________________________________________");
-    			
+    			System.out.println("_______________________________________");
+    			System.out.println("Title  " + "\t\t\tGenre  ");
+    			System.out.println("_______________________________________");
+    			String formatDVD="%-24s%s%n";
     			//loop to print out arrayList
    			 while(dvd.hasNext()){
    				   DVDs st=(DVDs)dvd.next();  
    				   
-   				   System.out.println(st.getTitle() + "\t\t\t" + st.getGenre());  
-   				   System.out.println("________________________________________________________________");
+   				   System.out.printf(formatDVD, st.getTitle(), st.getGenre());  
+   				   System.out.println("_______________________________________");
    			 } 
     			
    	            System.out.println("Options \n");
@@ -293,16 +292,16 @@ public class testItem{
 			
         Iterator Software=software.iterator();
 			
-			System.out.println("________________________________________________________________");
+			System.out.println("_________________________________________________");
 			System.out.println("Title  " + "\t\t\t\tType  ");
-			System.out.println("________________________________________________________________");
-			
+			System.out.println("_________________________________________________");
+			String formatSoftware="%-32s%s%n";
 			//loop to print out arrayList
 			 while(Software.hasNext()){
 				   Software st=(Software)Software.next();  
 				   
-				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
-				   System.out.println("________________________________________________________________");
+				   System.out.printf(formatSoftware, st.getTitle(), st.getType());  
+				   System.out.println("_________________________________________________");
 			 } 
 			
 	            System.out.println("Options \n");
@@ -375,16 +374,16 @@ public class testItem{
     			
             Iterator Hardware=hardware.iterator();
     			
-    			System.out.println("________________________________________________________________");
+    			System.out.println("______________________________________");
     			System.out.println("Title  " + "\t\t\t\tType  ");
-    			System.out.println("________________________________________________________________");
-    			
+    			System.out.println("______________________________________");
+    			String formatHardware="%-32s%s%n";
     			//loop to print out arrayList
    			 while(Hardware.hasNext()){
    				   Hardware st=(Hardware)Hardware.next();  
    				   
-   				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
-   				   System.out.println("________________________________________________________________");
+   				   System.out.printf(formatHardware, st.getTitle(), st.getType());  
+   				   System.out.println("______________________________________");
    			 } 
     			
    	            System.out.println("Options \n");

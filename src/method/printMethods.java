@@ -11,18 +11,22 @@ import assignment2.Hardware;
 import assignment2.Software;
 
 public class printMethods {
+	int counter=0;
 	public void Print(ArrayList<Book> books) throws ArithmeticException{
 		try{
 		Iterator itr1=books.iterator();
-		
-		System.out.println("__________________________________________________________________________________________________________________________");
-		System.out.println("Title  " + "\t\t\t\t\t\t\tAuthor  "+ "\t\tPublish  "+ " Status  " + "Type" + "\tPrice");
-		System.out.println("__________________________________________________________________________________________________________________________");
+		counter=0;
+		String formatTitle = "%25s%32s%20s%12s%8s%15s%n";
+		String formatList = "%-40s%-20s%-20s%-10s%-10s%-10s%n";
 		 while(itr1.hasNext()){  
 			   Book str=(Book)itr1.next();  
-			   
-			   System.out.println(str.getTitle() + "\t\t\t"+ str.getAuthor() + "\t" +str.getPublish() + "\t" + str.getStatus() + "\t" + str.getType() + "\tRM" + str.getPrice());  
-			   System.out.println("__________________________________________________________________________________________________________________________");
+			   if (counter==0){
+				   System.out.printf(formatTitle, "Book Title", "Author name", "Publish Date", "Status", "Type", "Price(RM)");
+				   System.out.println("-----------------------------------------------------------------------------------------------------------------");
+			   }
+			   System.out.printf(formatList, "| "+str.getTitle(), " | "+str.getAuthor(), " | "+str.getPublish(), " | "+str.getStatus(), " | "+str.getType(), " | "+str.getPrice()+"     |");  
+			   System.out.println("-----------------------------------------------------------------------------------------------------------------");
+			   counter++;
 		}  
 		}catch(ArithmeticException e){
 			e.getLocalizedMessage();
@@ -33,15 +37,18 @@ public class printMethods {
 	public void PrintDVD(ArrayList<DVDs> dvds) throws ArithmeticException{
 		try{
 		Iterator dvd=dvds.iterator();
-		
-		System.out.println("______________________________________________________________________________________________________________");
-		System.out.println("Title  " + "\t\t\t\tLenth  "+ "\tDirector  "+ "\tYear Made  " + "\tStatus" + "\tGenre" + "\tPrice");
-		System.out.println("______________________________________________________________________________________________________________");
+		counter=0;
+		String formatTitle = "%10s%14s%12s%12s%8s%10s%15s%n";
+		String formatList = "%-15s%-10s%-12s%-10s%-10s%-12s%-11s%s%n";
 		 while(dvd.hasNext()){  
 			   DVDs str=(DVDs)dvd.next();  
-			   
-			   System.out.println(str.getTitle() + "\t\t\t"+ str.getLength() + "\t" +str.getDirector() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" + str.getGenre() + "\tRM" + str.getPrice());  
-			   System.out.println("______________________________________________________________________________________________________________");
+			   if (counter==0){
+				   System.out.printf(formatTitle, "Title", "Length", "Director", "Year Made", "Status", "Genre", "Price(RM)");
+				   System.out.println("----------------------------------------------------------------------------------");
+				   }
+			   System.out.printf(formatList, "| "+str.getTitle(), " | "+str.getLength(), " | "+str.getDirector(), " | "+str.getYearMade(), " | "+str.getStatus(), " | "+str.getGenre(), " | "+str.getPrice(), " |");
+			   System.out.println("----------------------------------------------------------------------------------");
+			   counter++;
 		}  
 		}catch(ArithmeticException e){
 			e.getLocalizedMessage();
@@ -52,15 +59,18 @@ public class printMethods {
 	public void PrintHardware(ArrayList<Hardware> hardware) throws ArithmeticException{
 		try{
 		Iterator Hardware=hardware.iterator();
-		
-		System.out.println("______________________________________________________________________________________________________________");
-		System.out.println("Title  " + "\t\t\t\tType  "+ "\tBrand  "+ "\tYear Made  " + "\tStatus" + "\tPrice");
-		System.out.println("______________________________________________________________________________________________________________");
+		counter=0;
+		String formatTitle = "%8s%14s%12s%15s%9s%12s%n";
+		String formatList = "%-15s%-10s%-12s%-12s%-10s%-10s%s%n";
 		 while(Hardware.hasNext()){  
 			   Hardware str=(Hardware)Hardware.next();  
-			   
-			   System.out.println(str.getTitle() + "\t\t\t"+ str.getType() + "\t" +str.getBrand() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" +  "\tRM" + str.getPrice());  
-			   System.out.println("______________________________________________________________________________________________________________");
+			   if (counter==0){
+				   System.out.printf(formatTitle, "Title", "Type", "Brand", "Year Made", "Status", "Price(RM)");
+				   System.out.println("----------------------------------------------------------------------");
+				   }
+			   System.out.printf(formatList, "| "+str.getTitle(), " | "+str.getType(), " | "+str.getBrand(), " | "+str.getYearMade(), " | "+str.getStatus(), " | "+str.getPrice(), " |");  
+			   System.out.println("----------------------------------------------------------------------");
+			   counter++;
 		}  
 		}catch(ArithmeticException e){
 			e.getLocalizedMessage();
@@ -71,15 +81,18 @@ public class printMethods {
 	public void PrintSoftware(ArrayList<Software> software) throws ArithmeticException{
 		try{
 		Iterator Software=software.iterator();
-		
-		System.out.println("______________________________________________________________________________________________________________");
-		System.out.println("Title  " + "\t\t\t\tType "+ "\tCompany  "+ "\tYear Made  " + "\tStatus" + "\tPrice");
-		System.out.println("______________________________________________________________________________________________________________");
+		counter=0;
+		String formatTitle = "%15s%22s%17s%13s%9s%12s%n";
+		String formatList = "%-25s%-18s%-12s%-12s%-10s%-10s%s%n";
 		 while(Software.hasNext()){  
 			   Software str=(Software)Software.next();  
-			   
-			   System.out.println(str.getTitle() + "\t\t\t"+ str.getType() + "\t" +str.getCompany() + "\t\t" + str.getYearMade() + "\t" + str.getStatus() + "\t" +  "\tRM" + str.getPrice());  
-			   System.out.println("______________________________________________________________________________________________________________");
+			   if (counter==0){
+				   System.out.printf(formatTitle, "Title", "Type", "Company", "Year Made", "Status", "Price(RM)");
+				   System.out.println("-----------------------------------------------------------------------------------------");
+				   }
+			   System.out.printf(formatList, "| "+str.getTitle(), " | "+str.getType(), " | "+str.getCompany(), " | "+str.getYearMade(), " | "+str.getStatus(), " | "+str.getPrice(), " |");  
+			   System.out.println("-----------------------------------------------------------------------------------------");
+			   counter++;
 		}  
 		}catch(ArithmeticException e){
 			e.getLocalizedMessage();
@@ -92,17 +105,19 @@ public class printMethods {
 	public void PrintCustomer(ArrayList<CustomerInfo> customerinfo) throws ArithmeticException{
 		try{
 		Iterator cus =customerinfo.iterator();
-		
-		System.out.println("______________________________________________________________________________________________________________");
-		System.out.println("Name  " + "\t\t\tAge  "+ "\tPhone Number  "+ "\tInfo  " + "\t Date" + "\t\t\tItem");
-		System.out.println("______________________________________________________________________________________________________________");
+		counter=0;
+		String formatTitle = "%12s%10s%18s%12s%16s%25s%n";
+		String formatList = "%-15s%-10s%-18s%-12s%-15s%-30s%s%n";
 		 while(cus.hasNext()){
 			   CustomerInfo str=(CustomerInfo)cus.next();  
-			   
-			   System.out.println(str.getName() + "\t\t\t"+ str.getAge() + "\t" +str.getPhoneNum() + "\t\t" + str.getBuy() + "\t" + str.getDate() + "\t" + str.getInfo() + "\t"); 
-		 }
-		 
-			System.out.println("______________________________________________________________________________________________________________");
+			   if (counter==0){
+				   System.out.printf(formatTitle, "Name", "Age", "Phone Number", "Info", "Date", "Item");
+				   System.out.println("-------------------------------------------------------------------------------------------------------------");
+				   }
+			   System.out.printf(formatList, "| "+str.getName(), " | "+str.getAge(), " | "+str.getPhoneNum(), " | "+str.getBuy(), " | "+str.getDate(), " | "+str.getInfo(), " |"); 
+			   System.out.println("-------------------------------------------------------------------------------------------------------------");
+			   counter++;
+		 	}
 		}catch(ArithmeticException e){
 			e.getLocalizedMessage();
 		}
@@ -113,24 +128,26 @@ public class printMethods {
 		try{
 		Iterator cus =customerspent.iterator();
 		double sum = 0;
-		
-		System.out.println("______________________________________________________________________________________________________________");
-		System.out.println("Name  " + "\t\t\tAge  "+ "\tPhone Number  "+ "\tSpent  "  + "\t Date" + "\t\t\tItem");
-		System.out.println("______________________________________________________________________________________________________________");
+		counter=0;
+		String formatTitle = "%12s%10s%18s%15s%14s%25s%n";
+		String formatList = "%-15s%-10s%-18s%-12s%-15s%-30s%s%n";
 		 while(cus.hasNext()){
 			   CustomerSpent str=(CustomerSpent)cus.next();  
-			   
-			   System.out.println(str.getName() + "\t\t\t"+ str.getAge() + "\t" +str.getPhoneNum() + "\t\tRM" + str.getSpent() + "\t" + str.getDate() + "\t" + str.getBuy() + "\t"); 
+			   if (counter==0){
+				   System.out.printf(formatTitle, "Name", "Age", "Phone Number", "Spent(RM)", "Date", "Item");
+				   System.out.println("-------------------------------------------------------------------------------------------------------------");
+				   }
+			   System.out.printf(formatList, "| "+str.getName(), " | "+str.getAge(), " | "+str.getPhoneNum(), " | "+str.getSpent(), " | "+str.getDate(), " | "+str.getBuy(), " |"); 
+			   System.out.println("-------------------------------------------------------------------------------------------------------------");
+			   counter++;
 		 }
-		 
 			//total earn
-			System.out.println("______________________________________________________________________________________________________________");
 			System.out.println("\t\t\t\t\t\t\t\t\t\t\tTotal Amount");
-			System.out.println("______________________________________________________________________________________________________________"); 
+			System.out.println("-------------------------------------------------------------------------------------------------------------"); 
 			for(int i = 0; i < customerspent.size(); i++){
 				sum += customerspent.get(i).getSpent();
 			}
-			System.out.println("\t\t\t\t\t\t\t\t\t\t\tRM"+sum);
+			System.out.println("\t\t\t\t\t\t\t\t\t\t\tRM "+sum);
 		}catch(ArithmeticException e){
 			e.getLocalizedMessage();
 		}
