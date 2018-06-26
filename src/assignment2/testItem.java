@@ -50,12 +50,12 @@ public class testItem{
 		dvds.add(dvd6);
 		
 		//MusicCD arrayList
-		MusicCD cd1 = new MusicCD("S.H.E", 3.5, "Rock Company\t", "Hip-pop", 2010, "IN");
+		MusicCD cd1 = new MusicCD("S.H.E", 3.5, "Rock Company", "Hip-pop", 2010, "IN");
 		MusicCD cd2 = new MusicCD("Tank", 2.5, "Rock Company", "Blues", 2014, "IN");
-		MusicCD cd3 = new MusicCD("One Ok Rock", 2.5, "\tOne Ok Rock ", "Rock", 2016, "IN");
-		MusicCD cd4 = new MusicCD("ACDC", 2, "\t\tACDC", "Rock", 2011, "IN");
-		MusicCD cd5 = new MusicCD("JJ Lim", 3, "\tRock Company ", "Classical", 2016, "IN");
-		MusicCD cd6 = new MusicCD("Jay chou", 3, "\t\t JVR Music", "Classical", 2018, "IN");
+		MusicCD cd3 = new MusicCD("One Ok Rock", 2.5, "One Ok Rock ", "Rock", 2016, "IN");
+		MusicCD cd4 = new MusicCD("ACDC", 2, "ACDC", "Rock", 2011, "IN");
+		MusicCD cd5 = new MusicCD("JJ Lim", 3, "Rock Company ", "Classical", 2016, "IN");
+		MusicCD cd6 = new MusicCD("Jay chou", 3, "JVR Music", "Classical", 2018, "IN");
 		ArrayList<MusicCD> cds = new ArrayList<MusicCD>();
 		cds.add(cd1);
 		cds.add(cd2);
@@ -95,12 +95,12 @@ public class testItem{
 		software.add(software6);
 		
 		//Stationary arrayList
-		Stationary stationary1 = new Stationary("Blue Pen", "Pen", "Mossery\t",2014, "IN");
-		Stationary stationary2 = new Stationary("Marker Pen", "Pen", "Mossery\t",2018, "IN");
-		Stationary stationary3 = new Stationary("Colored pencil", "pencil", "Stickerrific\t",2017, "IN");
-		Stationary stationary4 = new Stationary("Red Pen", "Pen", "Mossery\t",2017, "IN");
-		Stationary stationary5 = new Stationary("Black Pen", "Pen", "Mossery\t",2018, "IN");
-		Stationary stationary6 = new Stationary("Eraser", "Eraser", "Stickerrific\t",2018, "IN");
+		Stationary stationary1 = new Stationary("Blue Pen", "Pen", "Mossery",2014, "IN");
+		Stationary stationary2 = new Stationary("Marker Pen", "Pen", "Mossery",2018, "IN");
+		Stationary stationary3 = new Stationary("Colored Pencil", "Pencil", "Stickerrific",2017, "IN");
+		Stationary stationary4 = new Stationary("Red Pen", "Pen", "Mossery",2017, "IN");
+		Stationary stationary5 = new Stationary("Black Pen", "Pen", "Mossery",2018, "IN");
+		Stationary stationary6 = new Stationary("Eraser", "Eraser", "Stickerrific",2018, "IN");
 		ArrayList<Stationary> stationary = new ArrayList<Stationary>();
 		stationary.add(stationary1);
 		stationary.add(stationary2);
@@ -317,16 +317,16 @@ public class testItem{
     			
     			Iterator cd=cds.iterator();
     			
-    			System.out.println("________________________________________________________________");
-    			System.out.println("Title  " + "\t\t\t\tGenre  ");
-    			System.out.println("________________________________________________________________");
-    			
+    			System.out.println("_____________________________________");
+    			System.out.println("Title  " + "\t\t\tGenre  ");
+    			System.out.println("_____________________________________");
+    			String formatMusicCD="%-24s%s%n";
     			//loop to print out arrayList
    			 while(cd.hasNext()){
    				   MusicCD st=(MusicCD)cd.next();  
    				   
-   				   System.out.println(st.getTitle() + "\t\t\t" + st.getGenre());  
-   				   System.out.println("________________________________________________________________");
+   				   System.out.printf(formatMusicCD, st.getTitle(), st.getGenre());  
+   				   System.out.println("_____________________________________");
    			 } 
     			
    	            System.out.println("Options \n");
@@ -570,16 +570,16 @@ public class testItem{
     			
             Iterator Stationary=stationary.iterator();
     			
-    			System.out.println("________________________________________________________________");
+    			System.out.println("__________________________________________");
     			System.out.println("Title  " + "\t\t\t\tType  ");
-    			System.out.println("________________________________________________________________");
-    			
+    			System.out.println("__________________________________________");
+    			String formatStationary="%-32s%s%n";
     			//loop to print out arrayList
    			 while(Stationary.hasNext()){
    				Stationary st=(Stationary)Stationary.next();  
    				   
-   				   System.out.println(st.getTitle() + "\t\t\t" + st.getType());  
-   				   System.out.println("________________________________________________________________");
+   				   System.out.printf(formatStationary, st.getTitle(), st.getType());  
+   				   System.out.println("__________________________________________");
    			 } 
     			
    	            System.out.println("Options \n");
