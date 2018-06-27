@@ -23,15 +23,14 @@ public class purchaseMethods {
 	int age;
 	int phoneNum;
 	
-	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-    Date date = new Date();
-    String dateToday = formatter.format(date);
-	
 	//Purchase Method
 	//Purchase Book
 	public String purchaseMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		//if (titleSearch == null) return "\n No Books Available ";
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
@@ -78,6 +77,9 @@ public class purchaseMethods {
 	//Purchase DVD
 	public String purchaseDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
@@ -121,6 +123,9 @@ public class purchaseMethods {
 	//Purchase MusicCD
 	public String purchaseMusicCD(String titleSearch, String typeSearch, ArrayList<MusicCD> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
@@ -164,6 +169,9 @@ public class purchaseMethods {
 	//purchase Hardware
 	public String purchaseHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
@@ -207,6 +215,9 @@ public class purchaseMethods {
 	//purchase Stationary
 	public String purchaseStationary(String titleSearch, String typeSearch, ArrayList<Stationary> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
@@ -250,6 +261,9 @@ public class purchaseMethods {
 	//purchase Software
 	public String purchaseSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo, ArrayList<CustomerSpent> customerspent) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {

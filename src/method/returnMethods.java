@@ -22,15 +22,14 @@ public class returnMethods {
 	int age;
 	int phoneNum;
 	
-	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-    Date date = new Date();
-    String dateToday = formatter.format(date);
-	
 	//return Method
 	//return Book
 	public String returnMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		//if (titleSearch == null) return "\n No Books Avaliable ";
 		try{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		 for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
@@ -72,6 +71,9 @@ public class returnMethods {
 	//return DVD
 	public String returnDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
@@ -113,6 +115,9 @@ public class returnMethods {
 	//return MusicCD
 	public String returnMusicCD(String titleSearch, String typeSearch, ArrayList<MusicCD> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getGenre().equalsIgnoreCase(typeSearch)) {
@@ -154,6 +159,9 @@ public class returnMethods {
 	//return Hardware
 	public String returnHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
@@ -195,6 +203,9 @@ public class returnMethods {
 	//return Stationary
 	public String returnStationary(String titleSearch, String typeSearch, ArrayList<Stationary> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {
@@ -236,6 +247,9 @@ public class returnMethods {
 	//return Software
 	public String returnSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().equalsIgnoreCase(titleSearch)){
 		        	if(arraylist.get(i).getType().equalsIgnoreCase(typeSearch)) {

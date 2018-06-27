@@ -22,15 +22,14 @@ public class rentMethods {
 	int age;
 	int phoneNum;
 	
-	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-    Date date = new Date();
-    String dateToday = formatter.format(date);
-	
 	//rent Method
 	//rent Book
 	public String rentMethod(String titleSearch, String typeSearch, ArrayList<Book> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		//if (titleSearch == null) return "\n No Books Avaliable ";
 		try{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getType().contains(typeSearch)) {
@@ -73,6 +72,9 @@ public class rentMethods {
 	//rent DVD
 	public String rentDVD(String titleSearch, String typeSearch, ArrayList<DVDs> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getGenre().contains(typeSearch)) {
@@ -115,6 +117,9 @@ public class rentMethods {
 	//rent MusicCD
 	public String rentMusicCD(String titleSearch, String typeSearch, ArrayList<MusicCD> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{ 
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getGenre().contains(typeSearch)) {
@@ -157,6 +162,9 @@ public class rentMethods {
 	//rent Hardware
 	public String rentHardware(String titleSearch, String typeSearch, ArrayList<Hardware> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getType().contains(typeSearch)) {
@@ -199,6 +207,9 @@ public class rentMethods {
 	//rent Stationary
 	public String rentStationary(String titleSearch, String typeSearch, ArrayList<Stationary> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getType().contains(typeSearch)) {
@@ -241,6 +252,9 @@ public class rentMethods {
 	//rent Software
 	public String rentSoftware(String titleSearch, String typeSearch, ArrayList<Software> arraylist, ArrayList<CustomerInfo> customerinfo) throws ArithmeticException {
 		try{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();
+		    String dateToday = formatter.format(date);
 		for(int i = 0; i < arraylist.size(); i++){
 		        if(arraylist.get(i).getTitle().contains(titleSearch)){
 		        	if(arraylist.get(i).getType().contains(typeSearch)) {
